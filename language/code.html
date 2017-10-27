@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Code | Pug - にほんご。</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="http://tr.you84815.space/pug/favicon.ico">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <link rel="stylesheet" href="../css/fx.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-106478577-1', 'auto');
+      //ga('send', 'pageview');
+    </script>
+    <script src="../js/highlight.pack.js"></script>
+    <script src="../js/barba.min.js"></script>
+    <script src="../js/base.js"></script>
+    <script src="../js/pug.js"></script>
+  </head>
+</html>
+<body>
+  <header>
+    <div class="icon"><a class="no-barba" href="http://tr.you84815.space/"><img src="../img/icon.png"></a></div>
+    <div class="navi_toggle" onclick="toggleMenu()"><i class="menu-icon material-icons" id="navi_icon"></i></div>
+    <div class="title">Pug - <a class="no-barba" href="http://tr.you84815.space/">にほんご。</a></div>
+  </header>
+  <script>
+    toggleMenu = function() {
+      let navi = document.getElementsByClassName("navi");
+      navi[0].classList.toggle('show');
+      let navi_icon = document.getElementById("navi_icon");
+      navi_icon.classList.toggle('active');
+    }
+  </script>
+  <div id="barba-wrapper">
+    <div class="barba-container">
+      <div class="wrapper">
+        <div class="navi">
+          <h1><a href="../">Home</a></h1>
+          <h1>API</h1>
+          <div id="api">
+            <ul>
+              <li class="getting-started"><a href="../api/getting-started.html">Getting Started</a></li>
+              <li class="express-integration"><a href="../api/express-integration.html">Express Integration</a></li>
+              <li class="reference"><a href="../api/reference.html">Reference</a></li>
+              <li class="migrating-to-pug-2"><a href="../api/migrating-to-pug-2.html">Migrating to Pug 2</a></li>
+            </ul>
+          </div>
+          <h1>Language Reference</h1>
+          <div id="language-reference">
+            <ul>
+              <li class="attributes"><a href="../language/attributes.html">Attributes</a></li>
+              <li class="case"><a href="../language/case.html">Case</a></li>
+              <li class="code"><a class="active" href="../language/code.html">Code</a></li>
+              <li class="comments"><a href="../language/comments.html">Comments</a></li>
+              <li class="conditionals"><a href="../language/conditionals.html">Conditionals</a></li>
+              <li class="doctype"><a href="../language/doctype.html">Doctype</a></li>
+              <li class="filters"><a href="../language/filters.html">Filters</a></li>
+              <li class="includes"><a href="../language/includes.html">Includes</a></li>
+              <li class="inheritance"><a href="../language/inheritance.html">Inheritance</a></li>
+              <li class="interpolation"><a href="../language/interpolation.html">Interpolation</a></li>
+              <li class="iteration"><a href="../language/iteration.html">Iteration</a></li>
+              <li class="mixins"><a href="../language/mixins.html">Mixins</a></li>
+              <li class="plain-text"><a href="../language/plain-text.html">Plain Text</a></li>
+              <li class="tags"><a href="../language/tags.html">Tags</a></li>
+            </ul>
+          </div>
+          <hr>
+          <h1>HTML Source</h1>
+          <div id="navi_source"><a href="https://github.com/tobijibu/pug/archive/master.zip"><i class="menu-icon material-icons">&#xE884;</i></a><a href="https://github.com/tobijibu/pug/"><i class="menu-icon material-icons">&#xE86F;</i></a></div>
+        </div>
+        <div class="main">
+          <h1>Code</h1>
+          <h2>コード</h2>
+          <p>
+            PugはテンプレートにインラインでJavaScriptを含めることができます。
+            非出力処理(Unbuffered)、出力処理(Buffered)、非エスケープ出力処理(Unescaped Buffered)の3種類があります。
+          </p><br>
+          <h2 id="unbuffered-code">非出力処理</h2>
+          <p>非出力処理は、先頭に<code>-</code>を指定します。
+            この処理は、処理の内容を出力しません。<br>※非出力処理は、forやcase等の処理を行いますが、処理内容を出力しないということです。
+          </p>
+          <div class="half">
+            <pre><code class="pug">- for (var x = 0; x < 3; x++)
+  li item</code></pre>
+            <pre><code class="html">&#x3C;li&#x3E;item&#x3C;/li&#x3E;
+&#x3C;li&#x3E;item&#x3C;/li&#x3E;
+&#x3C;li&#x3E;item&#x3C;/li&#x3E;</code></pre>
+          </div><br>
+          <p>また、非出力処理をブロックで指定することも出来ます。</p>
+          <div class="half">
+            <pre><code class="pug">-
+  var list = ["Uno", "Dos", "Tres",
+          "Cuatro", "Cinco", "Seis"]
+each item in list
+  li= item</code></pre>
+            <pre><code class="html">&#x3C;li&#x3E;Uno&#x3C;/li&#x3E;
+&#x3C;li&#x3E;Dos&#x3C;/li&#x3E;
+&#x3C;li&#x3E;Tres&#x3C;/li&#x3E;
+&#x3C;li&#x3E;Cuatro&#x3C;/li&#x3E;
+&#x3C;li&#x3E;Cinco&#x3C;/li&#x3E;
+&#x3C;li&#x3E;Seis&#x3C;/li&#x3E;</code></pre>
+          </div><br>
+          <h2 id="buffered-code">出力処理</h2>
+          <p>出力処理は、先頭に<code>=</code>を指定します。
+            JavaScriptを評価して、結果を出力します。
+            セキュリティ面から、最初にHTMLをエスケープします。<br>※出力処理は、処理内容をそのまま出力するということです。
+          </p>
+          <div class="half">
+            <pre><code class="pug">p
+  = &#x27;This code is &#x3C;escaped&#x3E;!&#x27;</code></pre>
+            <pre><code class="html">&#x3C;p&#x3E;This code is &amp;lt;escaped&amp;gt;!&#x3C;/p&#x3E;</code></pre>
+          </div><br>
+          <p><code>+</code>を使ってインラインで書くことも出来ます。
+            JavaScriptで使える表現は全てサポートしています。
+          </p>
+          <div class="half">
+            <pre><code class="pug">p= &#x27;This code is&#x27; + &#x27; &#x3C;escaped&#x3E;!&#x27;</code></pre>
+            <pre><code class="html">&#x3C;p&#x3E;This code is &amp;lt;escaped&amp;gt;!&#x3C;/p&#x3E;</code></pre>
+          </div><br>
+          <h2 id="unescaped-buffered-code">非エスケープ出力処理</h2>
+          <p>非エスケープ出力処理は、先頭に<code>!=</code>を指定します。
+            JavaScriptを評価して、結果を出力します。
+            HTMLをエスケープせずに出力します。
+          </p>
+          <div class="half">
+            <pre><code class="pug">p
+  != &#x27;This code is &#x3C;strong&#x3E;not&#x3C;/strong&#x3E; escaped!&#x27;</code></pre>
+            <pre><code class="html">&#x3C;p&#x3E;This code is &#x3C;strong&#x3E;not&#x3C;/strong&#x3E; escaped!&#x3C;/p&#x3E;</code></pre>
+          </div><br>
+          <p><code>+</code>を使ってインラインで書くことも出来ます。
+            JavaScriptで使える表現は全てサポートしています。
+          </p>
+          <div class="half">
+            <pre><code class="pug">p!= &#x27;This code is&#x27; + &#x27; &#x3C;strong&#x3E;not&#x3C;/strong&#x3E; escaped!&#x27;</code></pre>
+            <pre><code class="html">&#x3C;p&#x3E;This code is &#x3C;strong&#x3E;not&#x3C;/strong&#x3E; escaped!&#x3C;/p&#x3E;</code></pre>
+          </div><br>
+          <h4>注意</h4>
+          <p><b><code>&attributes</code>で適用された属性は自動エスケープされません。</b><a href="https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AD%E3%82%B9%E3%82%B5%E3%82%A4%E3%83%88%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0" target="_blank">XSS</a>を防ぐには、ユーザーの入力情報を全て適切にサニタイズする必要があります。
+            mixinから<code>attributes</code>が呼び出された場合は自動エスケープします。
+          </p><br>
+          <div class="license">
+            <p>
+              &copy; 2017
+               pugjs.org Released under the <a href="https://opensource.org/licenses/mit-license.php">MIT license</a>
+            </p>
+            <p>このコンテンツは<a href="https://pugjs.org/api/getting-started.html">pugドキュメント</a>を翻訳/改変したものです。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer><span>
+       &copy; 
+      <script>document.write((new Date()).getFullYear());</script> tobijibu</span></footer>
+  <script src="../js/main.js"></script>
+  <script src="../js/barba_common.js"></script>
+</body>

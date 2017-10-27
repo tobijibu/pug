@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Tags | Pug - にほんご。</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="http://tr.you84815.space/pug/favicon.ico">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <link rel="stylesheet" href="../css/fx.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-106478577-1', 'auto');
+      //ga('send', 'pageview');
+    </script>
+    <script src="../js/highlight.pack.js"></script>
+    <script src="../js/barba.min.js"></script>
+    <script src="../js/base.js"></script>
+    <script src="../js/pug.js"></script>
+  </head>
+</html>
+<body>
+  <header>
+    <div class="icon"><a class="no-barba" href="http://tr.you84815.space/"><img src="../img/icon.png"></a></div>
+    <div class="navi_toggle" onclick="toggleMenu()"><i class="menu-icon material-icons" id="navi_icon"></i></div>
+    <div class="title">Pug - <a class="no-barba" href="http://tr.you84815.space/">にほんご。</a></div>
+  </header>
+  <script>
+    toggleMenu = function() {
+      let navi = document.getElementsByClassName("navi");
+      navi[0].classList.toggle('show');
+      let navi_icon = document.getElementById("navi_icon");
+      navi_icon.classList.toggle('active');
+    }
+  </script>
+  <div id="barba-wrapper">
+    <div class="barba-container">
+      <div class="wrapper">
+        <div class="navi">
+          <h1><a href="../">Home</a></h1>
+          <h1>API</h1>
+          <div id="api">
+            <ul>
+              <li class="getting-started"><a href="../api/getting-started.html">Getting Started</a></li>
+              <li class="express-integration"><a href="../api/express-integration.html">Express Integration</a></li>
+              <li class="reference"><a href="../api/reference.html">Reference</a></li>
+              <li class="migrating-to-pug-2"><a href="../api/migrating-to-pug-2.html">Migrating to Pug 2</a></li>
+            </ul>
+          </div>
+          <h1>Language Reference</h1>
+          <div id="language-reference">
+            <ul>
+              <li class="attributes"><a href="../language/attributes.html">Attributes</a></li>
+              <li class="case"><a href="../language/case.html">Case</a></li>
+              <li class="code"><a href="../language/code.html">Code</a></li>
+              <li class="comments"><a href="../language/comments.html">Comments</a></li>
+              <li class="conditionals"><a href="../language/conditionals.html">Conditionals</a></li>
+              <li class="doctype"><a href="../language/doctype.html">Doctype</a></li>
+              <li class="filters"><a href="../language/filters.html">Filters</a></li>
+              <li class="includes"><a href="../language/includes.html">Includes</a></li>
+              <li class="inheritance"><a href="../language/inheritance.html">Inheritance</a></li>
+              <li class="interpolation"><a href="../language/interpolation.html">Interpolation</a></li>
+              <li class="iteration"><a href="../language/iteration.html">Iteration</a></li>
+              <li class="mixins"><a href="../language/mixins.html">Mixins</a></li>
+              <li class="plain-text"><a href="../language/plain-text.html">Plain Text</a></li>
+              <li class="tags"><a class="active" href="../language/tags.html">Tags</a></li>
+            </ul>
+          </div>
+          <hr>
+          <h1>HTML Source</h1>
+          <div id="navi_source"><a href="https://github.com/tobijibu/pug/archive/master.zip"><i class="menu-icon material-icons">&#xE884;</i></a><a href="https://github.com/tobijibu/pug/"><i class="menu-icon material-icons">&#xE86F;</i></a></div>
+        </div>
+        <div class="main">
+          <h1>Tags</h1>
+          <h2>タグ</h2>
+          <p>
+            通常、行頭(またはスペースの後)のテキストはHTMLタグとみなされます。
+            インデントしたタグはネストされ、HTMLのツリー構造が生成されます。
+          </p>
+          <div class="half">
+            <pre><code class="pug">ul
+  li Item A
+  li Item B
+  li Item C</code></pre>
+            <pre><code class="html">&#x3C;ul&#x3E;
+  &#x3C;li&#x3E;Item A&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Item B&#x3C;/li&#x3E;
+  &#x3C;li&#x3E;Item C&#x3C;/li&#x3E;
+&#x3C;/ul&#x3E;</code></pre>
+          </div><br>
+          <p>Pugはどのタグに自己終了タグが必要か知っています。</p>
+          <div class="half">
+            <pre><code class="pug">img</code></pre>
+            <pre><code class="html">&#x3C;img/&#x3E;</code></pre>
+          </div><br>
+          <h2 id="block-expansion">ブロック拡張</h2>
+          <p>スペース節約のため、ネストタグをインラインで書くこともできます。</p>
+          <div class="half">
+            <pre><code class="pug">a: img</code></pre>
+            <pre><code class="pug">&#x3C;a&#x3E;&#x3C;img/&#x3E;&#x3C;/a&#x3E;</code></pre>
+          </div><br>
+          <h2 id="self-closing-tags">自己終了タグ</h2>
+          <p><code>img</code>、<code>meta</code>、<code>link</code>等のタグは
+            DCTYPEにxmlを指定していなくても、自動で自己終了タグを付与します。
+            また、タグに<code>/</code>を追加することで、明示的に閉じることもできます。<br>閉じタグが何を意味しているか、何をしているかが分かっている場合だけ利用してください。
+          </p>
+          <div class="half">
+            <pre><code class="pug">foo/
+foo(bar='baz')/</code></pre>
+            <pre><code class="html">&#x3C;foo/&#x3E;
+&#x3C;foo bar=&#x22;baz&#x22; /&#x3E;</code></pre>
+          </div><br>
+          <h2 id="rendered-whitespace">スペース表示</h2>
+          <p>
+            タグの先頭と末尾のスペースは削除されます。
+            そのため、HTMLタグをくっつけるかどうかを制御することができます。<br>詳しくは<a href="./plain-text.html#whitespace-control">スペース管理</a>を参照して下さい。
+          </p><br>
+          <div class="license">
+            <p>
+              &copy; 2017
+               pugjs.org Released under the <a href="https://opensource.org/licenses/mit-license.php">MIT license</a>
+            </p>
+            <p>このコンテンツは<a href="https://pugjs.org/api/getting-started.html">pugドキュメント</a>を翻訳/改変したものです。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer><span>
+       &copy; 
+      <script>document.write((new Date()).getFullYear());</script> tobijibu</span></footer>
+  <script src="../js/main.js"></script>
+  <script src="../js/barba_common.js"></script>
+</body>
