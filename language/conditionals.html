@@ -44,45 +44,48 @@
     <div class="barba-container">
       <div class="wrapper">
         <div class="navi">
-          <h1><a href="../">Home</a></h1>
-          <h1>API</h1>
-          <div id="api">
-            <ul>
-              <li class="getting-started"><a href="../api/getting-started.html">Getting Started</a></li>
-              <li class="express-integration"><a href="../api/express-integration.html">Express Integration</a></li>
-              <li class="reference"><a href="../api/reference.html">Reference</a></li>
-              <li class="migrating-to-pug-2"><a href="../api/migrating-to-pug-2.html">Migrating to Pug 2</a></li>
-            </ul>
-          </div>
-          <h1>Language Reference</h1>
-          <div id="language-reference">
-            <ul>
-              <li class="attributes"><a href="../language/attributes.html">Attributes</a></li>
-              <li class="case"><a href="../language/case.html">Case</a></li>
-              <li class="code"><a href="../language/code.html">Code</a></li>
-              <li class="comments"><a href="../language/comments.html">Comments</a></li>
-              <li class="conditionals"><a class="active" href="../language/conditionals.html">Conditionals</a></li>
-              <li class="doctype"><a href="../language/doctype.html">Doctype</a></li>
-              <li class="filters"><a href="../language/filters.html">Filters</a></li>
-              <li class="includes"><a href="../language/includes.html">Includes</a></li>
-              <li class="inheritance"><a href="../language/inheritance.html">Inheritance</a></li>
-              <li class="interpolation"><a href="../language/interpolation.html">Interpolation</a></li>
-              <li class="iteration"><a href="../language/iteration.html">Iteration</a></li>
-              <li class="mixins"><a href="../language/mixins.html">Mixins</a></li>
-              <li class="plain-text"><a href="../language/plain-text.html">Plain Text</a></li>
-              <li class="tags"><a href="../language/tags.html">Tags</a></li>
-            </ul>
-          </div>
-          <hr>
-          <h1>HTML Source</h1>
-          <div id="navi_source"><a href="https://github.com/tobijibu/pug/archive/master.zip"><i class="menu-icon material-icons">&#xE884;</i></a><a href="https://github.com/tobijibu/pug/"><i class="menu-icon material-icons">&#xE86F;</i></a></div>
+          <ul>
+            <li><a href="../">Home</a></li>
+            <li>API
+              <ul id="api">
+                <li class="getting-started"><a href="../api/getting-started.html">Getting Started</a></li>
+                <li class="express-integration"><a href="../api/express-integration.html">Express Integration</a></li>
+                <li class="reference"><a href="../api/reference.html">Reference</a></li>
+                <li class="migrating-to-pug-2"><a href="../api/migrating-to-pug-2.html">Migrating to Pug 2</a></li>
+              </ul>
+            </li>
+            <li>Language Reference
+              <ul id="language-reference">
+                <li class="attributes"><a href="../language/attributes.html">Attributes</a></li>
+                <li class="case"><a href="../language/case.html">Case</a></li>
+                <li class="code"><a href="../language/code.html">Code</a></li>
+                <li class="comments"><a href="../language/comments.html">Comments</a></li>
+                <li class="conditionals"><a class="active" href="../language/conditionals.html">Conditionals</a></li>
+                <li class="doctype"><a href="../language/doctype.html">Doctype</a></li>
+                <li class="filters"><a href="../language/filters.html">Filters</a></li>
+                <li class="includes"><a href="../language/includes.html">Includes</a></li>
+                <li class="inheritance"><a href="../language/inheritance.html">Inheritance</a></li>
+                <li class="interpolation"><a href="../language/interpolation.html">Interpolation</a></li>
+                <li class="iteration"><a href="../language/iteration.html">Iteration</a></li>
+                <li class="mixins"><a href="../language/mixins.html">Mixins</a></li>
+                <li class="plain-text"><a href="../language/plain-text.html">Plain Text</a></li>
+                <li class="tags"><a href="../language/tags.html">Tags</a></li>
+              </ul>
+            </li>
+            <hr>
+            <li>HTML Source
+              <div id="navi_source"><a href="https://github.com/tobijibu/pug/archive/master.zip"><i class="menu-icon material-icons">&#xE884;</i></a><a href="https://github.com/tobijibu/pug/"><i class="menu-icon material-icons">&#xE86F;</i></a></div>
+            </li>
+          </ul>
         </div>
         <div class="main">
           <h1>Conditionals</h1>
           <h2>条件文</h2>
           <p>条件文には<code>()</code>を付けることもできます。</p>
           <p>もしPug v1なら先頭の<code>-</code>を省略することができます。
-            それ以外はそのままです。(普通のJavaScriptと同様です。)<br>※Jadeの頃、条件文に<code>if(～)</code>のように<code>()</code>を付ける場合は、先頭に<code>-</code>を付ける必要があったので、
+            それ以外はそのままです。(普通のJavaScriptと同様です。)
+          </p>
+          <p class="note">* Jadeの頃、条件文に<code>if(～)</code>のように<code>()</code>を付ける場合は、先頭に<code>-</code>を付ける必要があったので、
             このような説明があるのだと思われます。
           </p>
           <div class="half">

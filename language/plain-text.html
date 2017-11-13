@@ -44,38 +44,39 @@
     <div class="barba-container">
       <div class="wrapper">
         <div class="navi">
-          <h1><a href="../">Home</a></h1>
-          <h1>API</h1>
-          <div id="api">
-            <ul>
-              <li class="getting-started"><a href="../api/getting-started.html">Getting Started</a></li>
-              <li class="express-integration"><a href="../api/express-integration.html">Express Integration</a></li>
-              <li class="reference"><a href="../api/reference.html">Reference</a></li>
-              <li class="migrating-to-pug-2"><a href="../api/migrating-to-pug-2.html">Migrating to Pug 2</a></li>
-            </ul>
-          </div>
-          <h1>Language Reference</h1>
-          <div id="language-reference">
-            <ul>
-              <li class="attributes"><a href="../language/attributes.html">Attributes</a></li>
-              <li class="case"><a href="../language/case.html">Case</a></li>
-              <li class="code"><a href="../language/code.html">Code</a></li>
-              <li class="comments"><a href="../language/comments.html">Comments</a></li>
-              <li class="conditionals"><a href="../language/conditionals.html">Conditionals</a></li>
-              <li class="doctype"><a href="../language/doctype.html">Doctype</a></li>
-              <li class="filters"><a href="../language/filters.html">Filters</a></li>
-              <li class="includes"><a href="../language/includes.html">Includes</a></li>
-              <li class="inheritance"><a href="../language/inheritance.html">Inheritance</a></li>
-              <li class="interpolation"><a href="../language/interpolation.html">Interpolation</a></li>
-              <li class="iteration"><a href="../language/iteration.html">Iteration</a></li>
-              <li class="mixins"><a href="../language/mixins.html">Mixins</a></li>
-              <li class="plain-text"><a class="active" href="../language/plain-text.html">Plain Text</a></li>
-              <li class="tags"><a href="../language/tags.html">Tags</a></li>
-            </ul>
-          </div>
-          <hr>
-          <h1>HTML Source</h1>
-          <div id="navi_source"><a href="https://github.com/tobijibu/pug/archive/master.zip"><i class="menu-icon material-icons">&#xE884;</i></a><a href="https://github.com/tobijibu/pug/"><i class="menu-icon material-icons">&#xE86F;</i></a></div>
+          <ul>
+            <li><a href="../">Home</a></li>
+            <li>API
+              <ul id="api">
+                <li class="getting-started"><a href="../api/getting-started.html">Getting Started</a></li>
+                <li class="express-integration"><a href="../api/express-integration.html">Express Integration</a></li>
+                <li class="reference"><a href="../api/reference.html">Reference</a></li>
+                <li class="migrating-to-pug-2"><a href="../api/migrating-to-pug-2.html">Migrating to Pug 2</a></li>
+              </ul>
+            </li>
+            <li>Language Reference
+              <ul id="language-reference">
+                <li class="attributes"><a href="../language/attributes.html">Attributes</a></li>
+                <li class="case"><a href="../language/case.html">Case</a></li>
+                <li class="code"><a href="../language/code.html">Code</a></li>
+                <li class="comments"><a href="../language/comments.html">Comments</a></li>
+                <li class="conditionals"><a href="../language/conditionals.html">Conditionals</a></li>
+                <li class="doctype"><a href="../language/doctype.html">Doctype</a></li>
+                <li class="filters"><a href="../language/filters.html">Filters</a></li>
+                <li class="includes"><a href="../language/includes.html">Includes</a></li>
+                <li class="inheritance"><a href="../language/inheritance.html">Inheritance</a></li>
+                <li class="interpolation"><a href="../language/interpolation.html">Interpolation</a></li>
+                <li class="iteration"><a href="../language/iteration.html">Iteration</a></li>
+                <li class="mixins"><a href="../language/mixins.html">Mixins</a></li>
+                <li class="plain-text"><a class="active" href="../language/plain-text.html">Plain Text</a></li>
+                <li class="tags"><a href="../language/tags.html">Tags</a></li>
+              </ul>
+            </li>
+            <hr>
+            <li>HTML Source
+              <div id="navi_source"><a href="https://github.com/tobijibu/pug/archive/master.zip"><i class="menu-icon material-icons">&#xE884;</i></a><a href="https://github.com/tobijibu/pug/"><i class="menu-icon material-icons">&#xE86F;</i></a></div>
+            </li>
+          </ul>
         </div>
         <div class="main">
           <h1>Plain Text</h1>
@@ -193,7 +194,9 @@ body
               <li>Pugは要素と、インクルードした中身のスペースを保持します。
                 <ul class="disc">
                   <li>Pugタグ以降のテキストに含まれているスペース</li>
-                  <li>ブロックコンテンツの基準を超えた先頭のスペース<br>(※確認しましたが削除されます。)</li>
+                  <li>ブロックコンテンツの基準を超えた(2段以上深いネスト)時の先頭のスペース<br>
+                    <p class="note">* 確認しましたが削除されます。</p>
+                  </li>
                   <li>末尾のスペース</li>
                   <li>プレーンテキスト内の改行と、パイプで繋がった行にあるスペース</li>
                 </ul>
@@ -202,7 +205,7 @@ body
           </p>
           <p>
             Pugはタグ間のスペースを削除しますが、タグ内のスペースはそのまま保持します。
-            大事なことは、タグ(と/または)プレーンテキストがくっつくかどうかを完全に制御することです。
+            大事なことは、タグとプレーンテキスト間のスペースを完全に制御することです。
             タグをテキスト内に含めることで実現できます。
           </p>
           <div class="half">
@@ -214,11 +217,11 @@ em la
             <pre><code class="html">You put the em&#x3C;em&#x3E;pha&#x3C;/em&#x3E;sis on the wrong syl&#x3C;em&#x3E;la&#x3C;/em&#x3E;ble.</code></pre>
           </div><br>
           <p>
-            タグとテキストがくっついてしまうことを制御し、
-            それが必要かどうかを考えること、についてはトレード・オフとなるでしょう。
+            タグとテキスト間のスペースを制御と、
+            その必要性を考えることはトレード・オフです。
           </p>
           <p>
-            タグとテキストがくっつける必要がある場合
+            タグとテキストをくっつける必要がある場合
             (恐らく文章末尾の句点(ピリオド)をリンクの外に設置するのに必要です。)、
             以下のように指定します。特に指定しなければPugは何もしません。
           </p>
