@@ -24,6 +24,7 @@
     <script src="../js/barba.min.js"></script>
     <script src="../js/base.js"></script>
     <script src="../js/pug.js"></script>
+    <script src="https://pugjs.org/js/pug.js"></script>
   </head>
 </html>
 <body>
@@ -74,13 +75,13 @@
       <hr>
       <ul>
         <li>HTML Source
-          <div id="navi_source"><a href="https://github.com/tobijibu/undefinedarchive/master.zip"><i class="menu-icon material-icons">&#xE884;</i></a><a href="https://github.com/tobijibu/undefined"><i class="menu-icon material-icons">&#xE86F;</i></a></div>
+          <div id="navi_source"><a href="https://github.com/tobijibu/pug/archive/master.zip"><i class="menu-icon material-icons">&#xE884;</i></a><a href="https://github.com/tobijibu/pug/"><i class="menu-icon material-icons">&#xE86F;</i></a></div>
         </li>
       </ul>
-      <div id="gcs" data-id="017083506626304158170:jtbwpizyute">
+      <div>
         <script>
           (function() {
-            var cx = document.getElementById('gcs').getAttribute('data-id');
+            var cx = '017083506626304158170:jtbwpizyute';
             var gcse = document.createElement('script');
             gcse.type = 'text/javascript';
             gcse.async = true;
@@ -193,7 +194,7 @@ console.log(compiledFunction({
 // &#x22;&#x3C;p&#x3E;Forbes&#x27;s Pug source code!&#x3C;/p&#x3E;&#x22;</code></pre><br>
           <p><a class="no-barba" href="./reference.html#render"><code>pug.render()</code></a>は、コンパイルとレンダリングを一度に実行する関数です。
             しかし、テンプレート関数は<code>render</code>が呼び出される度に再コンパイルします。
-            そのため、パフォーマンスに影響が発生するかもしれません。<br><code>render</code>に<code>cache</code>オプションを指定することで、
+            そのため、パフォーマンスに影響が出るかもしれません。<br><code>render</code>に<code>cache</code>オプションを指定することで、
             コンパイル時に内部キャッシュに保存しておくこともできます。
           </p>
           <pre><code class="js">const pug = require('pug');

@@ -24,6 +24,7 @@
     <script src="../js/barba.min.js"></script>
     <script src="../js/base.js"></script>
     <script src="../js/pug.js"></script>
+    <script src="https://pugjs.org/js/pug.js"></script>
   </head>
 </html>
 <body>
@@ -74,13 +75,13 @@
       <hr>
       <ul>
         <li>HTML Source
-          <div id="navi_source"><a href="https://github.com/tobijibu/undefinedarchive/master.zip"><i class="menu-icon material-icons">&#xE884;</i></a><a href="https://github.com/tobijibu/undefined"><i class="menu-icon material-icons">&#xE86F;</i></a></div>
+          <div id="navi_source"><a href="https://github.com/tobijibu/pug/archive/master.zip"><i class="menu-icon material-icons">&#xE884;</i></a><a href="https://github.com/tobijibu/pug/"><i class="menu-icon material-icons">&#xE86F;</i></a></div>
         </li>
       </ul>
-      <div id="gcs" data-id="017083506626304158170:jtbwpizyute">
+      <div>
         <script>
           (function() {
-            var cx = document.getElementById('gcs').getAttribute('data-id');
+            var cx = '017083506626304158170:jtbwpizyute';
             var gcse = document.createElement('script');
             gcse.type = 'text/javascript';
             gcse.async = true;
@@ -169,7 +170,7 @@
             詳しく解説していきます。
           </p>
           <h4>tips</h4>
-          <p><b>PugはWebブラウザのコンソールから使えます！</b>PugのAPIを動かしてみるには、このページに書かれていることを試してみてください。<br></p>
+          <p><b>PugはWebブラウザのコンソールから使えます！</b><br>試しにPugのAPIを動かしてみるなら、このページに書かれていることをやってみてください。<br></p>
           <pre><code class="js">pug.render('p Hello world!');</code></pre>
           <p class="note">
             * F12でコンソールを立ち上げて以下を入力すると
@@ -192,7 +193,7 @@
               詳しくは<a class="no-barba" href="../language/doctype.html#doctype-option">doctype</a>を参照してください。<br><br>
             </dd>
             <dt><b>pretty</b><span class="args">: boolean | string</span></dt>
-            <dd><b>[廃止予定]</b><br>HTMLにインデントとして"  "(スペース2つ)を追加し、人が読みやすいファイルとして出力します。
+            <dd><b>[廃止予定]</b><br>HTMLにインデントとして<code>'  '</code>(スペース2つ)を追加し、人が読みやすいファイルとして出力します。
               <code>string</code>が指定されている場合、その文字をインデントに使用します。(例:<code>'\t'</code>)<br>スペースの解釈とレンダリングが変更されるため、頻繁にバグを生みます。
               そのため、この機能を廃止する予定です。デフォルトは<code>false</code>です。<br><br>
             </dd>
@@ -209,7 +210,7 @@
             <dt><b>debug</b><span class="args">: boolean</span></dt>
             <dd><code>true</code>にすると、トークンと関数がstdoutに記録されます。<br><br></dd>
             <dt><b>compileDebug</b><span>: boolean</span></dt>
-            <dd><code>true</code>にすると、コンパイル時に良いエラーメッセージのために
+            <dd><code>true</code>にすると、コンパイル時のエラーメッセージを表示するために、
               関数のソースがテンプレート内に含まれます。
               (開発中に便利です。)
               本番モードで<a href="https://expressjs.com/" target="_blank">Express</a>と共に使われない限り
@@ -224,7 +225,7 @@
               デフォルトは<code>false</code>です。<br><br>
             </dd>
             <dt><b>inlineRuntimeFunctions</b><span class="args">: boolean</span></dt>
-            <dd><code>require</code>するか、しないかにかかわらず、インラインでpug-runtimeを含めるかどうか。
+            <dd><code>require</code>する、しないにかかわらず、インラインでpug-runtimeを含めるかどうかを指定します。
               <code>compileClient</code>関数では、デフォルトは<code>true</code>です。
               (pug-runtimeを含める必要はありません。)
               <code>compile</code>または<code>render</code>の場合、デフォルトは<code>false</code>です。<br><br>

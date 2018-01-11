@@ -24,6 +24,7 @@
     <script src="../js/barba.min.js"></script>
     <script src="../js/base.js"></script>
     <script src="../js/pug.js"></script>
+    <script src="https://pugjs.org/js/pug.js"></script>
   </head>
 </html>
 <body>
@@ -74,13 +75,13 @@
       <hr>
       <ul>
         <li>HTML Source
-          <div id="navi_source"><a href="https://github.com/tobijibu/undefinedarchive/master.zip"><i class="menu-icon material-icons">&#xE884;</i></a><a href="https://github.com/tobijibu/undefined"><i class="menu-icon material-icons">&#xE86F;</i></a></div>
+          <div id="navi_source"><a href="https://github.com/tobijibu/pug/archive/master.zip"><i class="menu-icon material-icons">&#xE884;</i></a><a href="https://github.com/tobijibu/pug/"><i class="menu-icon material-icons">&#xE86F;</i></a></div>
         </li>
       </ul>
-      <div id="gcs" data-id="017083506626304158170:jtbwpizyute">
+      <div>
         <script>
           (function() {
-            var cx = document.getElementById('gcs').getAttribute('data-id');
+            var cx = '017083506626304158170:jtbwpizyute';
             var gcse = document.createElement('script');
             gcse.type = 'text/javascript';
             gcse.async = true;
@@ -216,7 +217,7 @@ body(class=authenticated ? 'authed' : 'anon')</code></pre>
             属性名にJavaScriptで指定出来ない名称を指定する場合、
             <code>""(ダブルクォート)</code>または<code>''(シングルクォート)</code>で囲むか、
             属性を<code>,(カンマ)</code>で区切ってください。
-            このような名称は例えば<code>[]</code>や、<code>()</code>で囲まれた名称が考えられます。
+            JavaScriptで指定できない名称は、例えば<code>[]</code>や、<code>()</code>で囲まれた名称が考えられます。
             (Angular 2でよく使われます。)
           </p>
           <div class="half">
@@ -278,7 +279,7 @@ button(type='button' class=`btn btn-${btnType} btn-${btnSize}`)</code></pre>
           <div class="half">
             <pre><code class="pug">div(escaped=&#x22;&#x3C;code&#x3E;&#x22;)
 div(unescaped!=&#x22;&#x3C;code&#x3E;&#x22;)</code></pre>
-            <pre><code class="html">&#x3C;div escaped=&#x22;&#x3C;code&#x3E;&#x22;&#x3E;&#x3C;/div&#x3E;
+            <pre><code class="html">&#x3C;div escaped=&#x22;&amp;lt;code&amp;gt;&#x22;&#x3E;&#x3C;/div&#x3E;
 &#x3C;div unescaped=&#x22;&#x3C;code&#x3E;&#x22;&#x3E;&#x3C;/div&#x3E;</code></pre>
           </div><br>
           <h4>注意</h4>
@@ -330,7 +331,7 @@ input(type='checkbox' checked=true && 'checked')</code></pre>
           </div><br>
           <h2 id="style-attributes">スタイル属性</h2>
           <p><code>style</code>属性は、他の属性と同様に文字列を指定することができますが、
-            スタイルのオブジェクトを指定することも可能です。
+            スタイルのオブジェクトを指定することもできます。
             これはJavaScriptによって生成されたスタイルを指定する時に便利です。
           </p>
           <div class="half">
@@ -339,7 +340,7 @@ input(type='checkbox' checked=true && 'checked')</code></pre>
           </div><br>
           <h2 id="class-attributes">クラス属性</h2>
           <p><code>class</code>属性は、他の属性と同様に文字列を指定することができますが、
-            クラス名の配列を指定することも可能です。
+            クラス名の配列を指定することもできます。
             これはJavaScriptによって生成されたクラス配列を指定する時に便利です。
           </p>
           <div class="half">

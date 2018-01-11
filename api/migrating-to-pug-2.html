@@ -24,6 +24,7 @@
     <script src="../js/barba.min.js"></script>
     <script src="../js/base.js"></script>
     <script src="../js/pug.js"></script>
+    <script src="https://pugjs.org/js/pug.js"></script>
   </head>
 </html>
 <body>
@@ -74,13 +75,13 @@
       <hr>
       <ul>
         <li>HTML Source
-          <div id="navi_source"><a href="https://github.com/tobijibu/undefinedarchive/master.zip"><i class="menu-icon material-icons">&#xE884;</i></a><a href="https://github.com/tobijibu/undefined"><i class="menu-icon material-icons">&#xE86F;</i></a></div>
+          <div id="navi_source"><a href="https://github.com/tobijibu/pug/archive/master.zip"><i class="menu-icon material-icons">&#xE884;</i></a><a href="https://github.com/tobijibu/pug/"><i class="menu-icon material-icons">&#xE86F;</i></a></div>
         </li>
       </ul>
-      <div id="gcs" data-id="017083506626304158170:jtbwpizyute">
+      <div>
         <script>
           (function() {
-            var cx = document.getElementById('gcs').getAttribute('data-id');
+            var cx = '017083506626304158170:jtbwpizyute';
             var gcse = document.createElement('script');
             gcse.type = 'text/javascript';
             gcse.async = true;
@@ -170,12 +171,12 @@
             廃止したり、廃止するかどうかを検討する必要がありました。
             出来る限り廃止しない方法を探りましたが、それらの変更の多くはコンソールエラーが発生していました。
           </p>
-          <p>このページでは最新のPug対応するための変換方法を記載します。</p>
+          <p>このページでは最新のPugに対応するための変換方法を記載します。</p>
           <h2>プロジェクト名変更</h2>
           <p>
             Pug v2のリリース以降、商標の問題によりプロジェクト名が、「Jade」から「Pug」に変更されました。
             これにより拡張子も<code>.jade</code>から<code>.pug</code>に変更されました。
-            <code>.jade</code>は引き続き利用可能ですが廃止されます。
+            <code>.jade</code>は引き続き利用可能ですが、いずれ廃止されます。
             すぐに<code>.pug</code>に変更することをお勧めします。
           </p><br>
           <h2>廃止された機能</h2>
@@ -242,7 +243,7 @@ for a in b
           <h3>プロパティ</h3>
           <h4><code>doctype</code></h4>
           <p>以前、<code>jade.doctype</code>オブジェクト(ドキュメント化されていません)に<a class="no-barba" href="../language/doctype.html#doctype-shortcuts">doctypeショートカット</a>が含まれていました。
-            このオブジェクトは、拡張してショートカットの追加・変更することができました。<br>Pug v2ではこのオブジェクトを分離して、<a href="https://www.npmjs.com/package/doctypes" target="_blank">doctypeパッケージ</a>に含めました。
+            このオブジェクトは、拡張してショートカットの追加・変更をすることができました。<br>Pug v2ではこのオブジェクトを分離して、<a href="https://www.npmjs.com/package/doctypes" target="_blank">doctypeパッケージ</a>に含めました。
             doctypeショートカットを追加するには、<a href="https://github.com/pugjs/pug/tree/master/packages/pug-code-gen" target="_blank"><code>codeGen</code>プラグイン</a>を使う必要があります。
           </p><br>
           <h4><code>nodes</code></h4>
@@ -269,7 +270,7 @@ for a in b
           <p>これらのオプションは廃止された<code>Compiler</code>、<code>Lexer</code>、<code>Parser</code>で使われていました。</p><br>
           <h4><code>client</code></h4>
           <p><code>client</code>オプションはclient関数をコンパイルする時に使われていました。
-            2013年から<a class="no-barba" href="./reference.html#pugcompileclientsource-options"><code>compileClient</code></a>が推奨されるようになり、それ以降、clientを利用すると警告を表示するようになっています。
+            2013年から<a class="no-barba" href="./reference.html#pugcompileclientsource-options"><code>compileClient</code></a>が推奨されるようになり、それ以降、<code>client</code>を利用すると警告を表示するようになっています。
           </p>
           <div class="license">
             <p>
