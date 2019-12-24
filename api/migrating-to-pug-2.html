@@ -1,56 +1,211 @@
-<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><title>Migrating to Pug v2 | Pug - にほんご。</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta property="og:title" content="Migrating to Pug v2 | Pug - にほんご。"><meta property="og:url"><meta property="og:type" content="article"><link rel="icon" href="https://tr.you84815.space/pug/favicon.ico"><link rel="stylesheet" href="../css/main.css"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Migrating to Pug v2 | Pug - にほんご。</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property="og:title" content="Migrating to Pug v2 | Pug - にほんご。">
+    <meta property="og:url">
+    <meta property="og:type" content="article">
+    <link rel="icon" href="https://tr.you84815.space/pug/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link id="theme_style" rel="stylesheet" type="text/css" href="">
+    <script id="srcTheme" src="../js/toggleTheme.js" data-dir="pug"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-106478577-1', 'auto');
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <div class="icon"><a class="no-barba" href="https://tr.you84815.space/">
+            <svg width="16" height="16">
+              <rect width="16" height="16" fill="#e0e0e0"></rect>
+            </svg></a></div>
+        <div class="navi_toggle" onclick="toggleMenu()">
+          <svg id="menu_close" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+            <path d="M0 0h24v24H0z" fill="none"></path>
+          </svg>
+          <svg id="menu_open" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+          </svg>
+        </div>
+        <div class="title">Pug - <a class="no-barba" href="https://tr.you84815.space/">にほんご。</a></div><span id="toggleTheme">
+          <svg role="img" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path d="M8 256c0 136.966 111.033 248 248 248s248-111.034 248-248S392.966 8 256 8 8 119.033 8 256zm248 184V72c101.705 0 184 82.311 184 184 0 101.705-82.311 184-184 184z"></path>
+          </svg></span>
+      </header>
+      <div class="navi" id="navi">
+        <ul class="menu">
+          <li><a href="../index.html">Home</a></li>
+          <li>API
+            <ul id="api">
+              <li><a href="../api/getting-started.html">Getting Started</a></li>
+              <li><a href="../api/express-integration.html">Express Integration</a></li>
+              <li><a href="../api/reference.html">Reference</a></li>
+              <li><a class="active" href="../api/migrating-to-pug-2.html">Migrating to Pug 2</a></li>
+            </ul>
+          </li>
+          <li>Language Reference
+            <ul id="language-reference">
+              <li><a href="../language/attributes.html">Attributes</a></li>
+              <li><a href="../language/case.html">Case</a></li>
+              <li><a href="../language/code.html">Code</a></li>
+              <li><a href="../language/comments.html">Comments</a></li>
+              <li><a href="../language/conditionals.html">Conditionals</a></li>
+              <li><a href="../language/doctype.html">Doctype</a></li>
+              <li><a href="../language/filters.html">Filters</a></li>
+              <li><a href="../language/includes.html">Includes</a></li>
+              <li><a href="../language/inheritance.html">Inheritance</a></li>
+              <li><a href="../language/interpolation.html">Interpolation</a></li>
+              <li><a href="../language/iteration.html">Iteration</a></li>
+              <li><a href="../language/mixins.html">Mixins</a></li>
+              <li><a href="../language/plain-text.html">Plain Text</a></li>
+              <li><a href="../language/tags.html">Tags</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div id="content">
+        <div id="main">
+          <div id="barba-wrapper">
+            <div class="barba-container">
+              <h1>Migrating to Pug v2</h1>
+              <div id="update_date"><span>更新日: 2018.09.10
+</span>
+              </div>
+              <p>
+                Pug v2は2016年8月にリリースされました。
+                将来のリリースで改善していくためには、いくつかのAPIやドキュメント化されていない機能を
+                廃止したり、廃止するかどうかを検討する必要がありました。
+                出来る限り廃止しない方法を探りましたが、それらの変更の多くはコンソールエラーが発生していました。
+              </p>
+              <p>このページでは最新のPugに対応するための変換方法を記載します。</p>
+              <h2>プロジェクト名変更</h2>
+              <p>
+                Pug v2のリリース以降、商標の問題によりプロジェクト名が、「Jade」から「Pug」に変更されました。
+                これにより拡張子も<code>.jade</code>から<code>.pug</code>に変更されました。
+                <code>.jade</code>は引き続き利用可能ですが、いずれ廃止されます。
+                すぐに<code>.pug</code>に変更することをお勧めします。
+              </p><br>
+              <h2>廃止された機能</h2>
+              <p>廃止された機能のほとんどは公式lintの<a href="https://www.npmjs.com/package/pug-lint" target="_blank" rel="noopener noreferrer"><code>pug-lint</code></a>で検出可能です。</p><br>
+              <h3>Mixin呼び出し</h3>
+              <div class="half">
+                <pre><code><span class="hljs-comment">//- old</span>
 
-ga('create', 'UA-106478577-1', 'auto');</script></head><body><div id="container"><header><div class="icon"><a class="no-barba" href="https://tr.you84815.space/"><svg width="16" height="16"><rect width="16" height="16" fill="#e0e0e0"></rect></svg></a></div><div class="navi_toggle" onclick="toggleMenu()"><svg id="menu_close" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg><svg id="menu_open" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></div><div class="title">Pug - <a class="no-barba" href="https://tr.you84815.space/">にほんご。</a></div></header><div class="navi" id="navi"><ul class="menu"><li><a href="../index.html">Home</a></li><li>API<ul id="api"><li><a href="../api/getting-started.html">Getting Started</a></li><li><a href="../api/express-integration.html">Express Integration</a></li><li><a href="../api/reference.html">Reference</a></li><li><a class="active" href="../api/migrating-to-pug-2.html">Migrating to Pug 2</a></li></ul></li><li>Language Reference<ul id="language-reference"><li><a href="../language/attributes.html">Attributes</a></li><li><a href="../language/case.html">Case</a></li><li><a href="../language/code.html">Code</a></li><li><a href="../language/comments.html">Comments</a></li><li><a href="../language/conditionals.html">Conditionals</a></li><li><a href="../language/doctype.html">Doctype</a></li><li><a href="../language/filters.html">Filters</a></li><li><a href="../language/includes.html">Includes</a></li><li><a href="../language/inheritance.html">Inheritance</a></li><li><a href="../language/interpolation.html">Interpolation</a></li><li><a href="../language/iteration.html">Iteration</a></li><li><a href="../language/mixins.html">Mixins</a></li><li><a href="../language/plain-text.html">Plain Text</a></li><li><a href="../language/tags.html">Tags</a></li></ul></li></ul></div><div id="content"><div id="main"><div id="barba-wrapper"><div class="barba-container"><h1>Migrating to Pug v2</h1><div id="update_date"><span>更新日: 2018.09.10
-</span></div><p>Pug v2は2016年8月にリリースされました。
-将来のリリースで改善していくためには、いくつかのAPIやドキュメント化されていない機能を
-廃止したり、廃止するかどうかを検討する必要がありました。
-出来る限り廃止しない方法を探りましたが、それらの変更の多くはコンソールエラーが発生していました。</p><p>このページでは最新のPugに対応するための変換方法を記載します。</p><h2>プロジェクト名変更</h2><p>Pug v2のリリース以降、商標の問題によりプロジェクト名が、「Jade」から「Pug」に変更されました。
-これにより拡張子も<code>.jade</code>から<code>.pug</code>に変更されました。
-<code>.jade</code>は引き続き利用可能ですが、いずれ廃止されます。
-すぐに<code>.pug</code>に変更することをお勧めします。</p><br><h2>廃止された機能</h2><p>廃止された機能のほとんどは公式lintの<a href="https://www.npmjs.com/package/pug-lint" target="_blank" rel="noopener noreferrer"><code>pug-lint</code></a>で検出可能です。</p><br><h3>Mixin呼び出し</h3><div class="half"><pre><code><span class="hljs-comment">//- old</span>
+mixin foo(<span class="hljs-string">'whatever'</span>)</code></pre>
+                <pre><code><span class="hljs-comment">//- new</span>
 
-mixin foo(<span class="hljs-string">'whatever'</span>)</code></pre><pre><code><span class="hljs-comment">//- new</span>
-
-+foo(<span class="hljs-string">'whatever'</span>)</code></pre></div><p>mixinの宣言と呼び出しを区別しやすくするため、
-呼び出し時の構文を変更しました。</p><br><h3>属性補完</h3><div class="half"><pre><code><span class="hljs-comment">//- old</span>
++foo(<span class="hljs-string">'whatever'</span>)</code></pre>
+              </div>
+              <p>
+                mixinの宣言と呼び出しを区別しやすくするため、
+                呼び出し時の構文を変更しました。
+              </p><br>
+              <h3>属性補完</h3>
+              <div class="half">
+                <pre><code><span class="hljs-comment">//- old</span>
 
 a(href=<span class="hljs-string">'#{link}'</span>)
 
-a(href=<span class="hljs-string">'before#{link}after'</span>)</code></pre><pre><code><span class="hljs-comment">//- new</span>
+a(href=<span class="hljs-string">'before#{link}after'</span>)</code></pre>
+                <pre><code><span class="hljs-comment">//- new</span>
 
 a(href=link)
 
 <span class="hljs-comment">//- (Node.js/io.js ≥ 1.0.0の場合)</span>
 a(href=<span class="hljs-string">`before<span class="hljs-subst">${link}</span>after`</span>) 
 <span class="hljs-comment">//- (どれでも可)</span>
-a(href=<span class="hljs-string">'before'</span> + link + <span class="hljs-string">'after'</span>)</code></pre></div><p>実装が必要以上に複雑だったため、属性補完機能を廃止しました。
-JavaScriptの値を使うことが出来るという点も、分かりにくい要因の一つでした。<br>属性構文の詳細は<a class="no-barba" href="../language/attributes.html#attribute-interpolation">変数挿入</a>を参照してください。</p><br><h3><code>each</code>のプレフィックス</h3><div class="half"><pre><code><span class="hljs-comment">//- old</span>
+a(href=<span class="hljs-string">'before'</span> + link + <span class="hljs-string">'after'</span>)</code></pre>
+              </div>
+              <p>
+                実装が必要以上に複雑だったため、属性補完機能を廃止しました。
+                JavaScriptの値を使うことが出来るという点も、分かりにくい要因の一つでした。<br>属性構文の詳細は<a class="no-barba" href="../language/attributes.html#attribute-interpolation">変数挿入</a>を参照してください。
+              </p><br>
+              <h3><code>each</code>のプレフィックス</h3>
+              <div class="half">
+                <pre><code><span class="hljs-comment">//- old</span>
 
 - each a <span class="hljs-keyword">in</span> b
   = a
 
 - <span class="hljs-keyword">for</span> a <span class="hljs-keyword">in</span> b
-  = a</code></pre><pre><code><span class="hljs-comment">//- new</span>
+  = a</code></pre>
+                <pre><code><span class="hljs-comment">//- new</span>
 
 each a <span class="hljs-keyword">in</span> b
   = a
 
 <span class="hljs-keyword">for</span> a <span class="hljs-keyword">in</span> b
-  = a</code></pre></div><p><code>each</code>はJavaScript構文ではありません。
-そのため、JavaScriptの中で<code>each</code>文を使うと、(実装面で)分かりにくくなってしまいます。
-同じことが括弧無し<code>for</code>文にも言えます。<br>単純に先頭の<code>-</code>を削除すれば動作します。</p><h2>廃止されたAPI</h2><p>以下のプロパティとコンパイルオプションが廃止されました。
-これらのAPIが使われていないことを確認してください。</p><h3>プロパティ</h3><h4><code>doctype</code></h4><p>以前、<code>jade.doctype</code>オブジェクト(ドキュメント化されていません)に<a class="no-barba" href="../language/doctype.html#doctype-shortcuts">doctypeショートカット</a>が含まれていました。
-このオブジェクトは、拡張してショートカットの追加・変更をすることができました。<br>Pug v2ではこのオブジェクトを分離して、<a href="https://www.npmjs.com/package/doctypes" target="_blank" rel="noopener noreferrer">doctypeパッケージ</a>に含めました。
-doctypeショートカットを追加するには、<a href="https://github.com/pugjs/pug/tree/master/packages/pug-code-gen" target="_blank" rel="noopener noreferrer"><code>codeGen</code>プラグイン</a>を使う必要があります。</p><br><h4><code>nodes</code></h4><p>以前、<code>jade.nodes</code>オブジェクト(ドキュメント化されていません)には、
-「Jadeの抽象構文木(もちろんドキュメント化されていません)のノード」のコンストラクタとして機能するクラスが含まれていました。<br>Pug v2では、AST(抽象構文木)ノードの<code>type</code>プロパティを使ってダックタイピングするのをやめました。</p><br><h4><code>selfClosing</code></h4><p>以前、<code>jade.selfClosing</code>配列(ドキュメント化されていません)では、配列を拡張して<a class="no-barba" href="../language/tags.html#self-closing-tags">自己終了タグ</a>の動作を変更することができました。<br>Pug v2ではこの配列を分離して、<a href="https://www.npmjs.com/package/void-elements" target="_blank" rel="noopener noreferrer">void-elementsパッケージ</a>に含めました。
-この配列を変更するには、<a href="https://github.com/pugjs/pug/tree/master/packages/pug-code-gen" target="_blank" rel="noopener noreferrer"><code>codeGen</code>プラグイン</a>を使う必要があります。</p><br><h4><code>utils</code></h4><p>以前、<code>jade.utils</code>オブジェクト(ドキュメント化されていません)には、
-テンプレートエンジンのための、便利な3つの関数が含まれていました。<br><code>utils.merge</code>は使われることが無いので廃止しました。
-この機能はES2015の<a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Object/assign" target="_blank" rel="noopener noreferrer">Object.assign</a>を使うことで実現できます。<br><code>utils.stringify</code>は<a href="https://www.npmjs.com/package/js-stringify" target="_blank" rel="noopener noreferrer"><code>js-stringify</code></a>として分割し、より一層XSS攻撃から守ることが出来るようになりました。
-できる限りこのパッケージを使うことをお勧めします。</p><br><h4><code>Compiler</code>、<code>Lexer</code>、<code>Parser</code></h4><p>以前、Jadeの <code>compiler</code>クラス、<code>lexer</code>クラス、<code>parser</code>クラス(ドキュメント化されていません)は、
-これらのプロパティからエクスポートされていました。
-そして、これらのクラスから派生させた独自のcompiler、lexer、parserを作成することができました。<br>Pug v2ではコンパイル時のプロセスをカスタマイズ可能にしたので、これらのプロパティを廃止しました。<br>Pug v2でこれらのクラスの相当するものは、それぞれ<a href="https://www.npmjs.com/package/pug-code-gen" target="_blank" rel="noopener noreferrer"><code>pug-code-gen</code></a>、<a href="https://www.npmjs.com/package/pug-lexer" target="_blank" rel="noopener noreferrer"><code>pug-lexer</code></a>、<a href="https://www.npmjs.com/package/pug-parser" target="_blank" rel="noopener noreferrer"><code>pug-parser</code></a>です。互換性はありません。</p><br><h3>オプション</h3><h4><code>compiler</code>、<code>lexer</code>、<code>parser</code></h4><p>これらのオプションは廃止された<code>Compiler</code>、<code>Lexer</code>、<code>Parser</code>で使われていました。</p><br><h4><code>client</code></h4><p><code>client</code>オプションはclient関数をコンパイルする時に使われていました。
-2013年から<a class="no-barba" href="./reference.html#pugcompileclientsource-options"><code>compileClient</code></a>が推奨されるようになり、それ以降、<code>client</code>を利用すると警告を表示するようになっています。</p><br><div class="license"><p>&copy; 2017
- pugjs.org Released under the <a href="https://opensource.org/licenses/mit-license.php">MIT license</a></p><p>このコンテンツは<a href="https://pugjs.org/api/getting-started.html">pugドキュメント</a>を翻訳/改変したものです。</p></div></div></div></div></div><footer><span> &copy; <span id="copy_year">2017</span> tobijibu</span></footer></div><noscript id="deferred-styles"><link href="../css/lazy.css" rel="stylesheet"></noscript><script src="../js/main.js" defer></script><script src="https://pugjs.org/js/pug.js"></script><div id="src" hidden></div></body></html>
+  = a</code></pre>
+              </div>
+              <p><code>each</code>はJavaScript構文ではありません。
+                そのため、JavaScriptの中で<code>each</code>文を使うと、(実装面で)分かりにくくなってしまいます。
+                同じことが括弧無し<code>for</code>文にも言えます。<br>単純に先頭の<code>-</code>を削除すれば動作します。
+              </p>
+              <h2>廃止されたAPI</h2>
+              <p>
+                以下のプロパティとコンパイルオプションが廃止されました。
+                これらのAPIが使われていないことを確認してください。
+              </p>
+              <h3>プロパティ</h3>
+              <h4><code>doctype</code></h4>
+              <p>以前、<code>jade.doctype</code>オブジェクト(ドキュメント化されていません)に<a class="no-barba" href="../language/doctype.html#doctype-shortcuts">doctypeショートカット</a>が含まれていました。
+                このオブジェクトは、拡張してショートカットの追加・変更をすることができました。<br>Pug v2ではこのオブジェクトを分離して、<a href="https://www.npmjs.com/package/doctypes" target="_blank" rel="noopener noreferrer">doctypeパッケージ</a>に含めました。
+                doctypeショートカットを追加するには、<a href="https://github.com/pugjs/pug/tree/master/packages/pug-code-gen" target="_blank" rel="noopener noreferrer"><code>codeGen</code>プラグイン</a>を使う必要があります。
+              </p><br>
+              <h4><code>nodes</code></h4>
+              <p>以前、<code>jade.nodes</code>オブジェクト(ドキュメント化されていません)には、
+                「Jadeの抽象構文木(もちろんドキュメント化されていません)のノード」のコンストラクタとして機能するクラスが含まれていました。<br>Pug v2では、AST(抽象構文木)ノードの<code>type</code>プロパティを使ってダックタイピングするのをやめました。
+              </p><br>
+              <h4><code>selfClosing</code></h4>
+              <p>以前、<code>jade.selfClosing</code>配列(ドキュメント化されていません)では、配列を拡張して<a class="no-barba" href="../language/tags.html#self-closing-tags">自己終了タグ</a>の動作を変更することができました。<br>Pug v2ではこの配列を分離して、<a href="https://www.npmjs.com/package/void-elements" target="_blank" rel="noopener noreferrer">void-elementsパッケージ</a>に含めました。
+                この配列を変更するには、<a href="https://github.com/pugjs/pug/tree/master/packages/pug-code-gen" target="_blank" rel="noopener noreferrer"><code>codeGen</code>プラグイン</a>を使う必要があります。
+              </p><br>
+              <h4><code>utils</code></h4>
+              <p>以前、<code>jade.utils</code>オブジェクト(ドキュメント化されていません)には、
+                テンプレートエンジンのための、便利な3つの関数が含まれていました。<br><code>utils.merge</code>は使われることが無いので廃止しました。
+                この機能はES2015の<a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Object/assign" target="_blank" rel="noopener noreferrer">Object.assign</a>を使うことで実現できます。<br><code>utils.stringify</code>は<a href="https://www.npmjs.com/package/js-stringify" target="_blank" rel="noopener noreferrer"><code>js-stringify</code></a>として分割し、より一層XSS攻撃から守ることが出来るようになりました。
+                できる限りこのパッケージを使うことをお勧めします。
+              </p><br>
+              <h4><code>Compiler</code>、<code>Lexer</code>、<code>Parser</code></h4>
+              <p>以前、Jadeの <code>compiler</code>クラス、<code>lexer</code>クラス、<code>parser</code>クラス(ドキュメント化されていません)は、
+                これらのプロパティからエクスポートされていました。
+                そして、これらのクラスから派生させた独自のcompiler、lexer、parserを作成することができました。<br>Pug v2ではコンパイル時のプロセスをカスタマイズ可能にしたので、これらのプロパティを廃止しました。<br>Pug v2でこれらのクラスの相当するものは、それぞれ<a href="https://www.npmjs.com/package/pug-code-gen" target="_blank" rel="noopener noreferrer"><code>pug-code-gen</code></a>、<a href="https://www.npmjs.com/package/pug-lexer" target="_blank" rel="noopener noreferrer"><code>pug-lexer</code></a>、<a href="https://www.npmjs.com/package/pug-parser" target="_blank" rel="noopener noreferrer"><code>pug-parser</code></a>です。互換性はありません。
+              </p><br>
+              <h3>オプション</h3>
+              <h4><code>compiler</code>、<code>lexer</code>、<code>parser</code></h4>
+              <p>これらのオプションは廃止された<code>Compiler</code>、<code>Lexer</code>、<code>Parser</code>で使われていました。</p><br>
+              <h4><code>client</code></h4>
+              <p><code>client</code>オプションはclient関数をコンパイルする時に使われていました。
+                2013年から<a class="no-barba" href="./reference.html#pugcompileclientsource-options"><code>compileClient</code></a>が推奨されるようになり、それ以降、<code>client</code>を利用すると警告を表示するようになっています。
+              </p><br>
+              <div class="license">
+                <p>
+                  &copy; 2017
+                   pugjs.org Released under the <a href="https://opensource.org/licenses/mit-license.php">MIT license</a>
+                </p>
+                <p>このコンテンツは<a href="https://pugjs.org/api/getting-started.html">pugドキュメント</a>を翻訳/改変したものです。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer><span>&copy; <span id="copy_year">2017</span> tobijibu</span></footer>
+    </div>
+    <noscript id="deferred-styles">
+      <link href="../css/lazy.css" rel="stylesheet">
+    </noscript>
+    <script src="../js/main.js" defer></script>
+    <script src="https://pugjs.org/js/pug.js"></script>
+    <div id="src" hidden></div>
+  </body>
+</html>

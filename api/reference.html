@@ -1,72 +1,262 @@
-<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><title>API Reference | Pug - にほんご。</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta property="og:title" content="API Reference | Pug - にほんご。"><meta property="og:url"><meta property="og:type" content="article"><link rel="icon" href="https://tr.you84815.space/pug/favicon.ico"><link rel="stylesheet" href="../css/main.css"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-106478577-1', 'auto');</script></head><body><div id="container"><header><div class="icon"><a class="no-barba" href="https://tr.you84815.space/"><svg width="16" height="16"><rect width="16" height="16" fill="#e0e0e0"></rect></svg></a></div><div class="navi_toggle" onclick="toggleMenu()"><svg id="menu_close" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg><svg id="menu_open" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></div><div class="title">Pug - <a class="no-barba" href="https://tr.you84815.space/">にほんご。</a></div></header><div class="navi" id="navi"><ul class="menu"><li><a href="../index.html">Home</a></li><li>API<ul id="api"><li><a href="../api/getting-started.html">Getting Started</a></li><li><a href="../api/express-integration.html">Express Integration</a></li><li><a class="active" href="../api/reference.html">Reference</a></li><li><a href="../api/migrating-to-pug-2.html">Migrating to Pug 2</a></li></ul></li><li>Language Reference<ul id="language-reference"><li><a href="../language/attributes.html">Attributes</a></li><li><a href="../language/case.html">Case</a></li><li><a href="../language/code.html">Code</a></li><li><a href="../language/comments.html">Comments</a></li><li><a href="../language/conditionals.html">Conditionals</a></li><li><a href="../language/doctype.html">Doctype</a></li><li><a href="../language/filters.html">Filters</a></li><li><a href="../language/includes.html">Includes</a></li><li><a href="../language/inheritance.html">Inheritance</a></li><li><a href="../language/interpolation.html">Interpolation</a></li><li><a href="../language/iteration.html">Iteration</a></li><li><a href="../language/mixins.html">Mixins</a></li><li><a href="../language/plain-text.html">Plain Text</a></li><li><a href="../language/tags.html">Tags</a></li></ul></li></ul></div><div id="content"><div id="main"><div id="barba-wrapper"><div class="barba-container"><h1>API Reference</h1><div id="update_date"><span>更新日: 2018.09.10
-</span></div><p>このページではJavaScript APIを使ってPugをレンダリングする方法を
-詳しく解説していきます。</p><h4>tips</h4><p><b>PugはWebブラウザのコンソールから使えます！</b><br>試しにPugのAPIを動かしてみるなら、このページに書かれていることをやってみてください。<br></p><pre><code>pug.render(<span class="hljs-string">'p Hello world!'</span>);</code></pre><p class="note">* F12でコンソールを立ち上げて以下を入力すると
-"&#x3C;p&#x3E;Hello world!&#x3C;/p&#x3E;"と表示されます。</p><br><h2 id="options">オプション</h2><p>全てのAPIメソッドは以下のオプションを受け取ります</p><dl><dt><b>filename</b><span class="args">: string</span></dt><dd>コンパイル時のファイル名。
-例外発生時や、<code>include</code>、<code>extend</code>で使用します。
-デフォルトは<code>Pug</code>です。<br><br></dd><dt><b>basedir</b><span class="args">: string</span></dt><dd>絶対パスのルートディレクトリ。<br><br></dd><dt><b>doctype</b><span class="args">: string</span></dt><dd>テンプレートに<code>doctype</code>が指定されていない場合、ここで指定します。
-自己終了タグを付与したり、boolean属性による影響を無くすのに便利です。
-詳しくは<a class="no-barba" href="../language/doctype.html#doctype-option">doctype</a>を参照してください。<br><br></dd><dt><b>pretty</b><span class="args">: boolean | string</span></dt><dd><b>[廃止予定]</b><br>HTMLにインデントとして<code>'  '</code>(スペース2つ)を追加し、人が読みやすいファイルとして出力します。
-<code>string</code>が指定されている場合、その文字をインデントに使用します。(例:<code>'\t'</code>)<br>スペースの解釈とレンダリングが変更されるため、頻繁にバグを生みます。
-そのため、この機能を廃止する予定です。デフォルトは<code>false</code>です。<br><br></dd><dt><b>filters</b><span class="args">: object</span></dt><dd><a class="no-barba" href="../language/filters.html#custom-filters">カスタムフィルタ</a>のハッシュテーブルですです。
-デフォルトは<code>undefined</code>です。<br><br></dd><dt><b>self</b><span class="args">: boolean</span></dt><dd>名前空間<code>self</code>を使うことで、<code>locals</code>を保持します。
-コンパイルを高速化しますが、<code>locals</code>のプロパティにアクセスために、
-<code>variable</code>ではなく<code>self.variable</code>と記述する必要があります。
-デフォルトは<code>false</code>です。<br><br></dd><dt><b>debug</b><span class="args">: boolean</span></dt><dd><code>true</code>にすると、トークンと関数がstdoutに記録されます。<br><br></dd><dt><b>compileDebug</b><span>: boolean</span></dt><dd><code>true</code>にすると、コンパイル時のエラーメッセージを表示するために、
-関数のソースがテンプレート内に含まれます。
-(開発中に便利です。)
-本番モードで<a href="https://expressjs.com/" target="_blank" rel="noopener noreferrer">Express</a>と共に使われない限り
-デフォルトは有効になっています。<br><br></dd><dt><b>globals</b><span class="args">: Array<string></span></dt><dd>テンプレートからアクセスするためのグローバル名をリストに追加します。<br><br></dd><dt><b>cache</b><span class="args">: boolean</span></dt><dd><code>true</code>にすると、コンパイル時の関数をキャッシュします。
-<code>filename</code>はキャッシュのキーとしてセットしなければなりません。
-<code>render</code>機能のみに適用されます。
-デフォルトは<code>false</code>です。<br><br></dd><dt><b>inlineRuntimeFunctions</b><span class="args">: boolean</span></dt><dd><code>require</code>する、しないにかかわらず、インラインでpug-runtimeを含めるかどうかを指定します。
-<code>compileClient</code>関数では、デフォルトは<code>true</code>です。
-(pug-runtimeを含める必要はありません。)
-<code>compile</code>または<code>render</code>の場合、デフォルトは<code>false</code>です。<br><br></dd><dt><b>name</b><span class="args">: string</span></dt><dd>テンプレート関数名。<code>compileClient</code>関数の場合のみ有効です。
-デフォルトは<code>'template'</code>です。</dd></dl><h2 id="methods">関数</h2><h3 id="pug-compile">pug.compile(source, ?options)</h3><p>Pugテンプレートを関数に変換し、
-別の<code>locals</code>からも何度でもレンダリングすることができます。</p><dl><dt><b>source</b><span class="args">: string</span></dt><dd>コンパイルするPugテンプレート文字列</dd><dt><b>options</b><span class="args">: ?options</span></dt><dd>オプション</dd><dt><b>returns</b><span class="args">: function</span></dt><dd><code>locals</code>を含むオブジェクトからHTMLを生成する関数</dd></dl><pre><code><span class="hljs-keyword">var</span> pug = <span class="hljs-built_in">require</span>(<span class="hljs-string">'pug'</span>);
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>API Reference | Pug - にほんご。</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property="og:title" content="API Reference | Pug - にほんご。">
+    <meta property="og:url">
+    <meta property="og:type" content="article">
+    <link rel="icon" href="https://tr.you84815.space/pug/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link id="theme_style" rel="stylesheet" type="text/css" href="">
+    <script id="srcTheme" src="../js/toggleTheme.js" data-dir="pug"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-106478577-1', 'auto');
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <div class="icon"><a class="no-barba" href="https://tr.you84815.space/">
+            <svg width="16" height="16">
+              <rect width="16" height="16" fill="#e0e0e0"></rect>
+            </svg></a></div>
+        <div class="navi_toggle" onclick="toggleMenu()">
+          <svg id="menu_close" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+            <path d="M0 0h24v24H0z" fill="none"></path>
+          </svg>
+          <svg id="menu_open" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+          </svg>
+        </div>
+        <div class="title">Pug - <a class="no-barba" href="https://tr.you84815.space/">にほんご。</a></div><span id="toggleTheme">
+          <svg role="img" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path d="M8 256c0 136.966 111.033 248 248 248s248-111.034 248-248S392.966 8 256 8 8 119.033 8 256zm248 184V72c101.705 0 184 82.311 184 184 0 101.705-82.311 184-184 184z"></path>
+          </svg></span>
+      </header>
+      <div class="navi" id="navi">
+        <ul class="menu">
+          <li><a href="../index.html">Home</a></li>
+          <li>API
+            <ul id="api">
+              <li><a href="../api/getting-started.html">Getting Started</a></li>
+              <li><a href="../api/express-integration.html">Express Integration</a></li>
+              <li><a class="active" href="../api/reference.html">Reference</a></li>
+              <li><a href="../api/migrating-to-pug-2.html">Migrating to Pug 2</a></li>
+            </ul>
+          </li>
+          <li>Language Reference
+            <ul id="language-reference">
+              <li><a href="../language/attributes.html">Attributes</a></li>
+              <li><a href="../language/case.html">Case</a></li>
+              <li><a href="../language/code.html">Code</a></li>
+              <li><a href="../language/comments.html">Comments</a></li>
+              <li><a href="../language/conditionals.html">Conditionals</a></li>
+              <li><a href="../language/doctype.html">Doctype</a></li>
+              <li><a href="../language/filters.html">Filters</a></li>
+              <li><a href="../language/includes.html">Includes</a></li>
+              <li><a href="../language/inheritance.html">Inheritance</a></li>
+              <li><a href="../language/interpolation.html">Interpolation</a></li>
+              <li><a href="../language/iteration.html">Iteration</a></li>
+              <li><a href="../language/mixins.html">Mixins</a></li>
+              <li><a href="../language/plain-text.html">Plain Text</a></li>
+              <li><a href="../language/tags.html">Tags</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div id="content">
+        <div id="main">
+          <div id="barba-wrapper">
+            <div class="barba-container">
+              <h1>API Reference</h1>
+              <div id="update_date"><span>更新日: 2018.09.10
+</span>
+              </div>
+              <p>
+                このページではJavaScript APIを使ってPugをレンダリングする方法を
+                詳しく解説していきます。
+              </p>
+              <h4>tips</h4>
+              <p><b>PugはWebブラウザのコンソールから使えます！</b><br>試しにPugのAPIを動かしてみるなら、このページに書かれていることをやってみてください。<br></p>
+              <pre><code>pug.render(<span class="hljs-string">'p Hello world!'</span>);</code></pre>
+              <p class="note">
+                * F12でコンソールを立ち上げて以下を入力すると
+                "&#x3C;p&#x3E;Hello world!&#x3C;/p&#x3E;"と表示されます。
+              </p><br>
+              <h2 id="options">オプション</h2>
+              <p>全てのAPIメソッドは以下のオプションを受け取ります</p>
+              <dl>
+                <dt><b>filename</b><span class="args">: string</span></dt>
+                <dd>
+                  コンパイル時のファイル名。
+                  例外発生時や、<code>include</code>、<code>extend</code>で使用します。
+                  デフォルトは<code>Pug</code>です。<br><br>
+                </dd>
+                <dt><b>basedir</b><span class="args">: string</span></dt>
+                <dd>絶対パスのルートディレクトリ。<br><br></dd>
+                <dt><b>doctype</b><span class="args">: string</span></dt>
+                <dd>テンプレートに<code>doctype</code>が指定されていない場合、ここで指定します。
+                  自己終了タグを付与したり、boolean属性による影響を無くすのに便利です。
+                  詳しくは<a class="no-barba" href="../language/doctype.html#doctype-option">doctype</a>を参照してください。<br><br>
+                </dd>
+                <dt><b>pretty</b><span class="args">: boolean | string</span></dt>
+                <dd><b>[廃止予定]</b><br>HTMLにインデントとして<code>'  '</code>(スペース2つ)を追加し、人が読みやすいファイルとして出力します。
+                  <code>string</code>が指定されている場合、その文字をインデントに使用します。(例:<code>'\t'</code>)<br>スペースの解釈とレンダリングが変更されるため、頻繁にバグを生みます。
+                  そのため、この機能を廃止する予定です。デフォルトは<code>false</code>です。<br><br>
+                </dd>
+                <dt><b>filters</b><span class="args">: object</span></dt>
+                <dd><a class="no-barba" href="../language/filters.html#custom-filters">カスタムフィルタ</a>のハッシュテーブルですです。
+                  デフォルトは<code>undefined</code>です。<br><br>
+                </dd>
+                <dt><b>self</b><span class="args">: boolean</span></dt>
+                <dd>名前空間<code>self</code>を使うことで、<code>locals</code>を保持します。
+                  コンパイルを高速化しますが、<code>locals</code>のプロパティにアクセスために、
+                  <code>variable</code>ではなく<code>self.variable</code>と記述する必要があります。
+                  デフォルトは<code>false</code>です。<br><br>
+                </dd>
+                <dt><b>debug</b><span class="args">: boolean</span></dt>
+                <dd><code>true</code>にすると、トークンと関数がstdoutに記録されます。<br><br></dd>
+                <dt><b>compileDebug</b><span>: boolean</span></dt>
+                <dd><code>true</code>にすると、コンパイル時のエラーメッセージを表示するために、
+                  関数のソースがテンプレート内に含まれます。
+                  (開発中に便利です。)
+                  本番モードで<a href="https://expressjs.com/" target="_blank" rel="noopener noreferrer">Express</a>と共に使われない限り
+                  デフォルトは有効になっています。<br><br>
+                </dd>
+                <dt><b>globals</b><span class="args">: Array<string></span></dt>
+                <dd>テンプレートからアクセスするためのグローバル名をリストに追加します。<br><br></dd>
+                <dt><b>cache</b><span class="args">: boolean</span></dt>
+                <dd><code>true</code>にすると、コンパイル時の関数をキャッシュします。
+                  <code>filename</code>はキャッシュのキーとしてセットしなければなりません。
+                  <code>render</code>機能のみに適用されます。
+                  デフォルトは<code>false</code>です。<br><br>
+                </dd>
+                <dt><b>inlineRuntimeFunctions</b><span class="args">: boolean</span></dt>
+                <dd><code>require</code>する、しないにかかわらず、インラインでpug-runtimeを含めるかどうかを指定します。
+                  <code>compileClient</code>関数では、デフォルトは<code>true</code>です。
+                  (pug-runtimeを含める必要はありません。)
+                  <code>compile</code>または<code>render</code>の場合、デフォルトは<code>false</code>です。<br><br>
+                </dd>
+                <dt><b>name</b><span class="args">: string</span></dt>
+                <dd>テンプレート関数名。<code>compileClient</code>関数の場合のみ有効です。
+                  デフォルトは<code>'template'</code>です。
+                </dd>
+              </dl>
+              <h2 id="methods">関数</h2>
+              <h3 id="pug-compile">pug.compile(source, ?options)</h3>
+              <p>
+                Pugテンプレートを関数に変換し、
+                別の<code>locals</code>からも何度でもレンダリングすることができます。
+              </p>
+              <dl>
+                <dt><b>source</b><span class="args">: string</span></dt>
+                <dd>コンパイルするPugテンプレート文字列</dd>
+                <dt><b>options</b><span class="args">: ?options</span></dt>
+                <dd>オプション</dd>
+                <dt><b>returns</b><span class="args">: function</span></dt>
+                <dd><code>locals</code>を含むオブジェクトからHTMLを生成する関数</dd>
+              </dl>
+              <pre><code><span class="hljs-keyword">var</span> pug = <span class="hljs-built_in">require</span>(<span class="hljs-string">'pug'</span>);
  
 <span class="hljs-comment">// 関数をコンパイル</span>
 <span class="hljs-keyword">var</span> fn = pug.compile(<span class="hljs-string">'string of pug'</span>, options);
  
 <span class="hljs-comment">// 関数をレンダリング</span>
 <span class="hljs-keyword">var</span> html = fn(locals);
-<span class="hljs-comment">// =&gt; '&lt;string&gt;of pug&lt;/string&gt;'</span></code></pre><br><h3 id="pug-compileFile">pug.compileFile(path, ?options)</h3><p>Pugテンプレートが記述されたファイルを関数に変換し、
-別の<code>locals</code>からも何度でもレンダリング出来るようにします。</p><dl><dt><b>path</b><span class="args">: string</span></dt><dd>Pugファイルのパス</dd><dt><b>options</b><span class="args">: ?options</span></dt><dd>オプション</dd><dt><b>returns</b><span class="args">: function</span></dt><dd><code>locals</code>を含むオブジェクトからHTMLを生成する関数</dd></dl><pre><code><span class="hljs-keyword">var</span> pug = <span class="hljs-built_in">require</span>(<span class="hljs-string">'pug'</span>);
+<span class="hljs-comment">// =&gt; '&lt;string&gt;of pug&lt;/string&gt;'</span></code></pre><br>
+              <h3 id="pug-compileFile">pug.compileFile(path, ?options)</h3>
+              <p>
+                Pugテンプレートが記述されたファイルを関数に変換し、
+                別の<code>locals</code>からも何度でもレンダリング出来るようにします。
+              </p>
+              <dl>
+                <dt><b>path</b><span class="args">: string</span></dt>
+                <dd>Pugファイルのパス</dd>
+                <dt><b>options</b><span class="args">: ?options</span></dt>
+                <dd>オプション</dd>
+                <dt><b>returns</b><span class="args">: function</span></dt>
+                <dd><code>locals</code>を含むオブジェクトからHTMLを生成する関数</dd>
+              </dl>
+              <pre><code><span class="hljs-keyword">var</span> pug = <span class="hljs-built_in">require</span>(<span class="hljs-string">'pug'</span>);
  
 <span class="hljs-comment">// 関数をコンパイル</span>
 <span class="hljs-keyword">var</span> fn = pug.compileFile(<span class="hljs-string">'path to pug file'</span>, options);
  
 <span class="hljs-comment">// 関数をレンダリング</span>
 <span class="hljs-keyword">var</span> html = fn(locals);
-<span class="hljs-comment">// =&gt; '&lt;string&gt;of pug&lt;/string&gt;'</span></code></pre><br><h3 id="pug-compileclient">pug.compileClient(source, ?options)</h3><p>PugテンプレートをJavaScriptの文字列に変換し、
-pug-runtimeライブラリと共に、ブラウザでPugを使えるようにします。</p><dl><dt><b>source</b><span class="args">: string</span></dt><dd>コンパイルするPugテンプレート文字列</dd><dt><b>options</b><span class="args">: ?options</span></dt><dd>オプション</dd><dt><b>returns</b><span class="args">: string</span></dt><dd>JavaScript関数の文字列</dd></dl><pre><code><span class="hljs-keyword">var</span> pug = <span class="hljs-built_in">require</span>(<span class="hljs-string">'pug'</span>);
+<span class="hljs-comment">// =&gt; '&lt;string&gt;of pug&lt;/string&gt;'</span></code></pre><br>
+              <h3 id="pug-compileclient">pug.compileClient(source, ?options)</h3>
+              <p>
+                PugテンプレートをJavaScriptの文字列に変換し、
+                pug-runtimeライブラリと共に、ブラウザでPugを使えるようにします。
+              </p>
+              <dl>
+                <dt><b>source</b><span class="args">: string</span></dt>
+                <dd>コンパイルするPugテンプレート文字列</dd>
+                <dt><b>options</b><span class="args">: ?options</span></dt>
+                <dd>オプション</dd>
+                <dt><b>returns</b><span class="args">: string</span></dt>
+                <dd>JavaScript関数の文字列</dd>
+              </dl>
+              <pre><code><span class="hljs-keyword">var</span> pug = <span class="hljs-built_in">require</span>(<span class="hljs-string">'pug'</span>);
 
 <span class="hljs-comment">// 関数をコンパイル</span>
 <span class="hljs-keyword">var</span> fn = pug.compileClient(<span class="hljs-string">'string of pug'</span>, options);
 
 <span class="hljs-comment">// 関数をレンダリング</span>
 <span class="hljs-keyword">var</span> html = fn(locals);
-<span class="hljs-comment">// =&gt; 'function template(locals) { return "&lt;string&gt;of pug&lt;/string&gt;"; }'</span></code></pre><br><h3 id="pug-compileclientwithdependenciestracked">pug.compileClientWithDependenciesTracked(source, ?options)</h3><p><a href="#pug-compileclient"><code>compileClient</code></a>と同じです。
-しかし、このメソッドは以下のオブジェクトを返します。</p><pre><code>{
+<span class="hljs-comment">// =&gt; 'function template(locals) { return "&lt;string&gt;of pug&lt;/string&gt;"; }'</span></code></pre><br>
+              <h3 id="pug-compileclientwithdependenciestracked">pug.compileClientWithDependenciesTracked(source, ?options)</h3>
+              <p><a href="#pug-compileclient"><code>compileClient</code></a>と同じです。
+                しかし、このメソッドは以下のオブジェクトを返します。
+              </p>
+              <pre><code>{
   <span class="hljs-string">'body'</span>: <span class="hljs-string">'function (locals) {...}'</span>,
   <span class="hljs-string">'dependencies'</span>: [<span class="hljs-string">'filename.pug'</span>]
 }
-</code></pre><br><p>Pugファイルの変更を監視するようなものを実装し、
-ファイルの<code>dependencies</code>(依存関係)が必要な場合のみ利用してください。</p><br><h3 id="pug-compilefileclient">pug.compileFileClient(path, ?options)</h3><p>Pugテンプレートが記述されたファイルをJavaScriptの文字列に変換し、
-pug-runtimeと共に、ブラウザでPugを使えるようにします。</p><dl><dt><b>path</b><span class="args">: string</span></dt><dd>Pugファイルのパス</dd><dt><b>options</b><span class="args">: ?options</span></dt><dd>オプション</dd><dt><b>options.name</b><span class="args">: string</span></dt><dd>オプションに<code>.name</code>を指定すると、ブラウザで使う場合の関数名として利用されます。</dd><dt><b>returns</b><span class="args">: string</span></dt><dd>JavaScript本体</dd></dl><p>まずテンプレートファイルを用意します。</p><pre><code>h1 This is a Pug template
-h2 By #{author}</code></pre><br><p>次に、PugファイルにJavaScriptの関数文字列を追加します。</p><pre><code><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);
+</code></pre><br>
+              <p>
+                Pugファイルの変更を監視するようなものを実装し、
+                ファイルの<code>dependencies</code>(依存関係)が必要な場合のみ利用してください。
+              </p><br>
+              <h3 id="pug-compilefileclient">pug.compileFileClient(path, ?options)</h3>
+              <p>
+                Pugテンプレートが記述されたファイルをJavaScriptの文字列に変換し、
+                pug-runtimeと共に、ブラウザでPugを使えるようにします。
+              </p>
+              <dl>
+                <dt><b>path</b><span class="args">: string</span></dt>
+                <dd>Pugファイルのパス</dd>
+                <dt><b>options</b><span class="args">: ?options</span></dt>
+                <dd>オプション</dd>
+                <dt><b>options.name</b><span class="args">: string</span></dt>
+                <dd>オプションに<code>.name</code>を指定すると、ブラウザで使う場合の関数名として利用されます。</dd>
+                <dt><b>returns</b><span class="args">: string</span></dt>
+                <dd>JavaScript本体</dd>
+              </dl>
+              <p>まずテンプレートファイルを用意します。</p>
+              <pre><code>h1 This is a Pug template
+h2 By #{author}</code></pre><br>
+              <p>次に、PugファイルにJavaScriptの関数文字列を追加します。</p>
+              <pre><code><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);
 <span class="hljs-keyword">var</span> pug = <span class="hljs-built_in">require</span>(<span class="hljs-string">'pug'</span>);
 
 <span class="hljs-comment">// テンプレートを関数文字列にコンパイル</span>
 <span class="hljs-keyword">var</span> jsFunctionString = pug.compileFileClient(<span class="hljs-string">'/path/to/pugFile.pug'</span>, {<span class="hljs-attr">name</span>: <span class="hljs-string">"fancyTemplateFun"</span>});
 
 <span class="hljs-comment">// ブラウザで使えるように、全てのテンプレートにtemplate.jsを追加したいかもしれません。</span>
-fs.writeFileSync(<span class="hljs-string">"templates.js"</span>, jsFunctionString);</code></pre><br><p>出力される関数文字列は以下のようになります。(<code>template.js</code>に書き込まれます。)</p><pre><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fancyTemplateFun</span>(<span class="hljs-params">locals</span>) </span>{
+fs.writeFileSync(<span class="hljs-string">"templates.js"</span>, jsFunctionString);</code></pre><br>
+              <p>出力される関数文字列は以下のようになります。(<code>template.js</code>に書き込まれます。)</p>
+              <pre><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fancyTemplateFun</span>(<span class="hljs-params">locals</span>) </span>{
   <span class="hljs-keyword">var</span> buf = [];
   <span class="hljs-keyword">var</span> pug_mixins = {};
   <span class="hljs-keyword">var</span> pug_interp;
@@ -83,12 +273,15 @@ fs.writeFileSync(<span class="hljs-string">"templates.js"</span>, jsFunctionStri
   );
 
   <span class="hljs-keyword">return</span> buf.join(<span class="hljs-string">""</span>);
-}</code></pre><br><p>pug-runtime(<code>node_modules/pug/runtime.js</code>)をテンプレートに追加し
-コンパイルした関数を実行できるようにします。</p><pre><code><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+}</code></pre><br>
+              <p>pug-runtime(<code>node_modules/pug/runtime.js</code>)をテンプレートに追加し
+                コンパイルした関数を実行できるようにします。
+              </p>
+              <pre><code><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/runtime.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/templates.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/runtime.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/templates.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
 
   <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
@@ -101,9 +294,48 @@ fs.writeFileSync(<span class="hljs-string">"templates.js"</span>, jsFunctionStri
       <span class="hljs-built_in">document</span>.body.appendChild(div);
     </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre><br><h3 id="pug-render">pug.render(source, ?options, ?callback)</h3><dl><dt><b>source</b><span class="args">: string</span></dt><dd>レンダリングするPugテンプレート</dd><dt><b>options</b><span class="args">: ?options</span></dt><dd>オプション。<code>locals</code>としても利用されます。</dd><dt><b>callback</b><span class="args">: ?function</span></dt><dd>レンダリング結果をNode.js形式で受け取るコールバック。<b>このコールバックは同期的に呼び出されます。</b></dd><dt><b>returns</b><span class="args">: string</span></dt><dd>結果のHTML文字列。</dd></dl><pre><code><span class="hljs-keyword">var</span> pug = <span class="hljs-built_in">require</span>(<span class="hljs-string">'pug'</span>);
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre><br>
+              <h3 id="pug-render">pug.render(source, ?options, ?callback)</h3>
+              <dl>
+                <dt><b>source</b><span class="args">: string</span></dt>
+                <dd>レンダリングするPugテンプレート</dd>
+                <dt><b>options</b><span class="args">: ?options</span></dt>
+                <dd>オプション。<code>locals</code>としても利用されます。</dd>
+                <dt><b>callback</b><span class="args">: ?function</span></dt>
+                <dd>レンダリング結果をNode.js形式で受け取るコールバック。<b>このコールバックは同期的に呼び出されます。</b></dd>
+                <dt><b>returns</b><span class="args">: string</span></dt>
+                <dd>結果のHTML文字列。</dd>
+              </dl>
+              <pre><code><span class="hljs-keyword">var</span> pug = <span class="hljs-built_in">require</span>(<span class="hljs-string">'pug'</span>);
 
 <span class="hljs-keyword">var</span> html = pug.renderFile(<span class="hljs-string">'path/to/file.pug'</span>, options);
-<span class="hljs-comment">// ...</span></code></pre><br><h2 id="properties">Properties</h2><h3 id="pug-filters">pug.filters</h3><p><a class="no-barba" href="../language/filters.html#custom-filters">カスタムフィルタ</a>のハッシュテーブル。</p><p>このオブジェクトは<a href="#options"><code>options.filters</code></a>と同じセマンティクスを持ちます。しかし、Pugのコンパイル時にグローバルに適用されます。
-<code>pug.filters</code>と<code>options.filters</code>を両方指定している場合、<code>options.filters</code>が優先されます。</p><h4>廃止予定</h4><p>このプロパティは<a href="#options"><code>options.filters</code></a>を優先するため、廃止予定です。</p><br><br><div class="license"><p>&copy; 2017
- pugjs.org Released under the <a href="https://opensource.org/licenses/mit-license.php">MIT license</a></p><p>このコンテンツは<a href="https://pugjs.org/api/getting-started.html">pugドキュメント</a>を翻訳/改変したものです。</p></div></div></div></div></div><footer><span> &copy; <span id="copy_year">2017</span> tobijibu</span></footer></div><noscript id="deferred-styles"><link href="../css/lazy.css" rel="stylesheet"></noscript><script src="../js/main.js" defer></script><script src="https://pugjs.org/js/pug.js"></script><div id="src" hidden></div></body></html>
+<span class="hljs-comment">// ...</span></code></pre><br>
+              <h2 id="properties">Properties</h2>
+              <h3 id="pug-filters">pug.filters</h3>
+              <p><a class="no-barba" href="../language/filters.html#custom-filters">カスタムフィルタ</a>のハッシュテーブル。</p>
+              <p>このオブジェクトは<a href="#options"><code>options.filters</code></a>と同じセマンティクスを持ちます。しかし、Pugのコンパイル時にグローバルに適用されます。
+                <code>pug.filters</code>と<code>options.filters</code>を両方指定している場合、<code>options.filters</code>が優先されます。
+              </p>
+              <h4>廃止予定</h4>
+              <p>このプロパティは<a href="#options"><code>options.filters</code></a>を優先するため、廃止予定です。</p><br><br>
+              <div class="license">
+                <p>
+                  &copy; 2017
+                   pugjs.org Released under the <a href="https://opensource.org/licenses/mit-license.php">MIT license</a>
+                </p>
+                <p>このコンテンツは<a href="https://pugjs.org/api/getting-started.html">pugドキュメント</a>を翻訳/改変したものです。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer><span>&copy; <span id="copy_year">2017</span> tobijibu</span></footer>
+    </div>
+    <noscript id="deferred-styles">
+      <link href="../css/lazy.css" rel="stylesheet">
+    </noscript>
+    <script src="../js/main.js" defer></script>
+    <script src="https://pugjs.org/js/pug.js"></script>
+    <div id="src" hidden></div>
+  </body>
+</html>

@@ -1,30 +1,137 @@
-<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><title>Comments | Pug - にほんご。</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta property="og:title" content="Comments | Pug - にほんご。"><meta property="og:url"><meta property="og:type" content="article"><link rel="icon" href="https://tr.you84815.space/pug/favicon.ico"><link rel="stylesheet" href="../css/main.css"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-106478577-1', 'auto');</script></head><body><div id="container"><header><div class="icon"><a class="no-barba" href="https://tr.you84815.space/"><svg width="16" height="16"><rect width="16" height="16" fill="#e0e0e0"></rect></svg></a></div><div class="navi_toggle" onclick="toggleMenu()"><svg id="menu_close" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg><svg id="menu_open" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></div><div class="title">Pug - <a class="no-barba" href="https://tr.you84815.space/">にほんご。</a></div></header><div class="navi" id="navi"><ul class="menu"><li><a href="../index.html">Home</a></li><li>API<ul id="api"><li><a href="../api/getting-started.html">Getting Started</a></li><li><a href="../api/express-integration.html">Express Integration</a></li><li><a href="../api/reference.html">Reference</a></li><li><a href="../api/migrating-to-pug-2.html">Migrating to Pug 2</a></li></ul></li><li>Language Reference<ul id="language-reference"><li><a href="../language/attributes.html">Attributes</a></li><li><a href="../language/case.html">Case</a></li><li><a href="../language/code.html">Code</a></li><li><a class="active" href="../language/comments.html">Comments</a></li><li><a href="../language/conditionals.html">Conditionals</a></li><li><a href="../language/doctype.html">Doctype</a></li><li><a href="../language/filters.html">Filters</a></li><li><a href="../language/includes.html">Includes</a></li><li><a href="../language/inheritance.html">Inheritance</a></li><li><a href="../language/interpolation.html">Interpolation</a></li><li><a href="../language/iteration.html">Iteration</a></li><li><a href="../language/mixins.html">Mixins</a></li><li><a href="../language/plain-text.html">Plain Text</a></li><li><a href="../language/tags.html">Tags</a></li></ul></li></ul></div><div id="content"><div id="main"><div id="barba-wrapper"><div class="barba-container"><h1>Comments</h1><div id="update_date"><span>更新日: 2018.09.10
-</span></div><h2>コメント</h2><p>HTML内に表示するコメントはJavaScriptの1行コメントと同じように記述します。
-マークアップタグのようなものですが、HTML内にコメントをレンダリングします。</p><br><p>タグと同様にコメントは1行毎に記述します。</p><div class="half"><pre><code><span class="hljs-comment">// いくつかのパラグラフだけ</span>
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Comments | Pug - にほんご。</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property="og:title" content="Comments | Pug - にほんご。">
+    <meta property="og:url">
+    <meta property="og:type" content="article">
+    <link rel="icon" href="https://tr.you84815.space/pug/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link id="theme_style" rel="stylesheet" type="text/css" href="">
+    <script id="srcTheme" src="../js/toggleTheme.js" data-dir="pug"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-106478577-1', 'auto');
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <div class="icon"><a class="no-barba" href="https://tr.you84815.space/">
+            <svg width="16" height="16">
+              <rect width="16" height="16" fill="#e0e0e0"></rect>
+            </svg></a></div>
+        <div class="navi_toggle" onclick="toggleMenu()">
+          <svg id="menu_close" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+            <path d="M0 0h24v24H0z" fill="none"></path>
+          </svg>
+          <svg id="menu_open" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+          </svg>
+        </div>
+        <div class="title">Pug - <a class="no-barba" href="https://tr.you84815.space/">にほんご。</a></div><span id="toggleTheme">
+          <svg role="img" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path d="M8 256c0 136.966 111.033 248 248 248s248-111.034 248-248S392.966 8 256 8 8 119.033 8 256zm248 184V72c101.705 0 184 82.311 184 184 0 101.705-82.311 184-184 184z"></path>
+          </svg></span>
+      </header>
+      <div class="navi" id="navi">
+        <ul class="menu">
+          <li><a href="../index.html">Home</a></li>
+          <li>API
+            <ul id="api">
+              <li><a href="../api/getting-started.html">Getting Started</a></li>
+              <li><a href="../api/express-integration.html">Express Integration</a></li>
+              <li><a href="../api/reference.html">Reference</a></li>
+              <li><a href="../api/migrating-to-pug-2.html">Migrating to Pug 2</a></li>
+            </ul>
+          </li>
+          <li>Language Reference
+            <ul id="language-reference">
+              <li><a href="../language/attributes.html">Attributes</a></li>
+              <li><a href="../language/case.html">Case</a></li>
+              <li><a href="../language/code.html">Code</a></li>
+              <li><a class="active" href="../language/comments.html">Comments</a></li>
+              <li><a href="../language/conditionals.html">Conditionals</a></li>
+              <li><a href="../language/doctype.html">Doctype</a></li>
+              <li><a href="../language/filters.html">Filters</a></li>
+              <li><a href="../language/includes.html">Includes</a></li>
+              <li><a href="../language/inheritance.html">Inheritance</a></li>
+              <li><a href="../language/interpolation.html">Interpolation</a></li>
+              <li><a href="../language/iteration.html">Iteration</a></li>
+              <li><a href="../language/mixins.html">Mixins</a></li>
+              <li><a href="../language/plain-text.html">Plain Text</a></li>
+              <li><a href="../language/tags.html">Tags</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div id="content">
+        <div id="main">
+          <div id="barba-wrapper">
+            <div class="barba-container">
+              <h1>Comments</h1>
+              <div id="update_date"><span>更新日: 2018.09.10
+</span>
+              </div>
+              <h2>コメント</h2>
+              <p>
+                HTML内に表示するコメントはJavaScriptの1行コメントと同じように記述します。
+                マークアップタグのようなものですが、HTML内にコメントをレンダリングします。
+              </p><br>
+              <p>タグと同様にコメントは1行毎に記述します。</p>
+              <div class="half">
+                <pre><code><span class="hljs-comment">// いくつかのパラグラフだけ</span>
 p foo
-p bar</code></pre><pre><code><span class="hljs-comment">&lt;!-- いくつかのパラグラフだけ--&gt;</span>
+p bar</code></pre>
+                <pre><code><span class="hljs-comment">&lt;!-- いくつかのパラグラフだけ--&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>foo<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>bar<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre></div><br><p>HTMLにコメントを出力させない方法もあります。
-単にコメントの先頭に<code>-</code>を追加するだけです。</p><p>これはPugコード内に記述するコメントで、HTML内に記述されないコメントです。</p><div class="half"><pre><code><span class="hljs-comment">//- HTML内に記述されません</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>bar<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+              </div><br>
+              <p>
+                HTMLにコメントを出力させない方法もあります。
+                単にコメントの先頭に<code>-</code>を追加するだけです。
+              </p>
+              <p>これはPugコード内に記述するコメントで、HTML内に記述されないコメントです。</p>
+              <div class="half">
+                <pre><code><span class="hljs-comment">//- HTML内に記述されません</span>
 p foo
-p bar</code></pre><pre><code><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>foo<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>bar<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre></div><br><h2 id="block-comments">ブロックコメント</h2><p>ブロックコメントは以下のように指定します。</p><div class="half"><pre><code>body
+p bar</code></pre>
+                <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>foo<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>bar<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+              </div><br>
+              <h2 id="block-comments">ブロックコメント</h2>
+              <p>ブロックコメントは以下のように指定します。</p>
+              <div class="half">
+                <pre><code>body
   <span class="hljs-comment">//-</span>
     テンプレート作成者のコメント
     好きなだけ書けます。
   <span class="hljs-comment">//</span>
     HTMLに記載するコメント
-    好きなだけ書けます。</code></pre><pre><code><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    好きなだけ書けます。</code></pre>
+                <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
   <span class="hljs-comment">&lt;!--HTMLに記載するコメント
 好きなだけ書けます。--&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre></div><br><h2 id="conditional-comments">条件付きコメント</h2><p>Pugには条件付きコメントの特殊構文はありません。
-(条件付きコメントは、古いバージョンのInternetExplorerに特別なタグや処理を追加するものです。)</p><p>しかし、<code><</code>で始まる行は、全て<a class="no-barba" href="./plain-text.html">プレーンテキスト</a>として扱うので、
-通常の条件付きコメントコメントは正常に動作します。</p><div class="half"><pre><code>doctype html
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre>
+              </div><br>
+              <h2 id="conditional-comments">条件付きコメント</h2>
+              <p>
+                Pugには条件付きコメントの特殊構文はありません。
+                (条件付きコメントは、古いバージョンのInternetExplorerに特別なタグや処理を追加するものです。)
+              </p>
+              <p>しかし、<code><</code>で始まる行は、全て<a class="no-barba" href="./plain-text.html">プレーンテキスト</a>として扱うので、
+                通常の条件付きコメントコメントは正常に動作します。
+              </p>
+              <div class="half">
+                <pre><code>doctype html
 
 &lt;!--[<span class="hljs-keyword">if</span> IE <span class="hljs-number">8</span>]&gt;
 <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lt-ie9"</span>&gt;</span>
@@ -36,7 +143,8 @@ p bar</code></pre><pre><code><span class="hljs-tag">&lt;<span class="hljs-name">
 body
   p Supporting old web browsers is a pain.
 
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></span></code></pre><pre><code><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></span></code></pre>
+                <pre><code><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
 <span class="hljs-comment">&lt;!--[if IE 8]&gt;
 &lt;html lang="en" class="lt-ie9"&gt;
 &lt;![endif]--&gt;</span>
@@ -48,5 +156,26 @@ body
   <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Supporting old web browsers is a pain.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
 
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre></div><br><br><div class="license"><p>&copy; 2017
- pugjs.org Released under the <a href="https://opensource.org/licenses/mit-license.php">MIT license</a></p><p>このコンテンツは<a href="https://pugjs.org/api/getting-started.html">pugドキュメント</a>を翻訳/改変したものです。</p></div></div></div></div></div><footer><span> &copy; <span id="copy_year">2017</span> tobijibu</span></footer></div><noscript id="deferred-styles"><link href="../css/lazy.css" rel="stylesheet"></noscript><script src="../js/main.js" defer></script><script src="https://pugjs.org/js/pug.js"></script><div id="src" hidden></div></body></html>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+              </div><br><br>
+              <div class="license">
+                <p>
+                  &copy; 2017
+                   pugjs.org Released under the <a href="https://opensource.org/licenses/mit-license.php">MIT license</a>
+                </p>
+                <p>このコンテンツは<a href="https://pugjs.org/api/getting-started.html">pugドキュメント</a>を翻訳/改変したものです。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer><span>&copy; <span id="copy_year">2017</span> tobijibu</span></footer>
+    </div>
+    <noscript id="deferred-styles">
+      <link href="../css/lazy.css" rel="stylesheet">
+    </noscript>
+    <script src="../js/main.js" defer></script>
+    <script src="https://pugjs.org/js/pug.js"></script>
+    <div id="src" hidden></div>
+  </body>
+</html>

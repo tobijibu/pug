@@ -1,29 +1,114 @@
-<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><title>Includes | Pug - にほんご。</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta property="og:title" content="Includes | Pug - にほんご。"><meta property="og:url"><meta property="og:type" content="article"><link rel="icon" href="https://tr.you84815.space/pug/favicon.ico"><link rel="stylesheet" href="../css/main.css"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-106478577-1', 'auto');</script></head><body><div id="container"><header><div class="icon"><a class="no-barba" href="https://tr.you84815.space/"><svg width="16" height="16"><rect width="16" height="16" fill="#e0e0e0"></rect></svg></a></div><div class="navi_toggle" onclick="toggleMenu()"><svg id="menu_close" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg><svg id="menu_open" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></div><div class="title">Pug - <a class="no-barba" href="https://tr.you84815.space/">にほんご。</a></div></header><div class="navi" id="navi"><ul class="menu"><li><a href="../index.html">Home</a></li><li>API<ul id="api"><li><a href="../api/getting-started.html">Getting Started</a></li><li><a href="../api/express-integration.html">Express Integration</a></li><li><a href="../api/reference.html">Reference</a></li><li><a href="../api/migrating-to-pug-2.html">Migrating to Pug 2</a></li></ul></li><li>Language Reference<ul id="language-reference"><li><a href="../language/attributes.html">Attributes</a></li><li><a href="../language/case.html">Case</a></li><li><a href="../language/code.html">Code</a></li><li><a href="../language/comments.html">Comments</a></li><li><a href="../language/conditionals.html">Conditionals</a></li><li><a href="../language/doctype.html">Doctype</a></li><li><a href="../language/filters.html">Filters</a></li><li><a class="active" href="../language/includes.html">Includes</a></li><li><a href="../language/inheritance.html">Inheritance</a></li><li><a href="../language/interpolation.html">Interpolation</a></li><li><a href="../language/iteration.html">Iteration</a></li><li><a href="../language/mixins.html">Mixins</a></li><li><a href="../language/plain-text.html">Plain Text</a></li><li><a href="../language/tags.html">Tags</a></li></ul></li></ul></div><div id="content"><div id="main"><div id="barba-wrapper"><div class="barba-container"><h1>Includes</h1><div id="update_date"><span>更新日: 2018.09.10
-</span></div><h2>インクルード</h2><p>インクルードを使うと、他のファイルの内容を挿入することができます。</p><div class="half"><div><pre><code><span class="hljs-comment">//- index.pug</span>
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Includes | Pug - にほんご。</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property="og:title" content="Includes | Pug - にほんご。">
+    <meta property="og:url">
+    <meta property="og:type" content="article">
+    <link rel="icon" href="https://tr.you84815.space/pug/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link id="theme_style" rel="stylesheet" type="text/css" href="">
+    <script id="srcTheme" src="../js/toggleTheme.js" data-dir="pug"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-106478577-1', 'auto');
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <div class="icon"><a class="no-barba" href="https://tr.you84815.space/">
+            <svg width="16" height="16">
+              <rect width="16" height="16" fill="#e0e0e0"></rect>
+            </svg></a></div>
+        <div class="navi_toggle" onclick="toggleMenu()">
+          <svg id="menu_close" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+            <path d="M0 0h24v24H0z" fill="none"></path>
+          </svg>
+          <svg id="menu_open" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+          </svg>
+        </div>
+        <div class="title">Pug - <a class="no-barba" href="https://tr.you84815.space/">にほんご。</a></div><span id="toggleTheme">
+          <svg role="img" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path d="M8 256c0 136.966 111.033 248 248 248s248-111.034 248-248S392.966 8 256 8 8 119.033 8 256zm248 184V72c101.705 0 184 82.311 184 184 0 101.705-82.311 184-184 184z"></path>
+          </svg></span>
+      </header>
+      <div class="navi" id="navi">
+        <ul class="menu">
+          <li><a href="../index.html">Home</a></li>
+          <li>API
+            <ul id="api">
+              <li><a href="../api/getting-started.html">Getting Started</a></li>
+              <li><a href="../api/express-integration.html">Express Integration</a></li>
+              <li><a href="../api/reference.html">Reference</a></li>
+              <li><a href="../api/migrating-to-pug-2.html">Migrating to Pug 2</a></li>
+            </ul>
+          </li>
+          <li>Language Reference
+            <ul id="language-reference">
+              <li><a href="../language/attributes.html">Attributes</a></li>
+              <li><a href="../language/case.html">Case</a></li>
+              <li><a href="../language/code.html">Code</a></li>
+              <li><a href="../language/comments.html">Comments</a></li>
+              <li><a href="../language/conditionals.html">Conditionals</a></li>
+              <li><a href="../language/doctype.html">Doctype</a></li>
+              <li><a href="../language/filters.html">Filters</a></li>
+              <li><a class="active" href="../language/includes.html">Includes</a></li>
+              <li><a href="../language/inheritance.html">Inheritance</a></li>
+              <li><a href="../language/interpolation.html">Interpolation</a></li>
+              <li><a href="../language/iteration.html">Iteration</a></li>
+              <li><a href="../language/mixins.html">Mixins</a></li>
+              <li><a href="../language/plain-text.html">Plain Text</a></li>
+              <li><a href="../language/tags.html">Tags</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div id="content">
+        <div id="main">
+          <div id="barba-wrapper">
+            <div class="barba-container">
+              <h1>Includes</h1>
+              <div id="update_date"><span>更新日: 2018.09.10
+</span>
+              </div>
+              <h2>インクルード</h2>
+              <p>インクルードを使うと、他のファイルの内容を挿入することができます。</p>
+              <div class="half">
+                <div>
+                  <pre><code><span class="hljs-comment">//- index.pug</span>
 doctype html
 html
   include includes/head.pug
   body
     h1 My Site
     p Welcome to my <span class="hljs-keyword">super</span> lame site.
-    include includes/foot.pug</code></pre><pre><code><span class="hljs-comment">//- includes/head.pug</span>
+    include includes/foot.pug</code></pre>
+                  <pre><code><span class="hljs-comment">//- includes/head.pug</span>
 head
   title My Site
   script(src=<span class="hljs-string">'/javascripts/jquery.js'</span>)
-  script(src=<span class="hljs-string">'/javascripts/app.js'</span>)</code></pre><pre><code>//- includes/foot.pug
+  script(src=<span class="hljs-string">'/javascripts/app.js'</span>)</code></pre>
+                  <pre><code>//- includes/foot.pug
 footer#footer
-  p Copyright (c) foobar</code></pre></div><pre><code><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+  p Copyright (c) foobar</code></pre>
+                </div>
+                <pre><code><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>My Site<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/javascripts/jquery.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/javascripts/app.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/javascripts/jquery.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/javascripts/app.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
@@ -34,9 +119,18 @@ footer#footer
   <span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
 
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre></div><br><p>絶対パス(例：<code>include /root.pug</code>)で指定するには、
-<code>options.basedir</code>を使うことで対応できます。
-その他にも、コンパイル時に該当ファイルを基点にしてパスが解決されます。</p><p>拡張子が指定されていない場合は、自動でファイル名に<code>.pug</code>を付与します。</p><br><h2 id="including-plain-text">プレーンテキスト</h2><p>Pug以外のファイルの場合は、そのまま出力されます。</p><div class="half"><div><pre><code><span class="hljs-comment">//- index.pug</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+              </div><br>
+              <p>絶対パス(例：<code>include /root.pug</code>)で指定するには、
+                <code>options.basedir</code>を使うことで対応できます。
+                その他にも、コンパイル時に該当ファイルを基点にしてパスが解決されます。
+              </p>
+              <p>拡張子が指定されていない場合は、自動でファイル名に<code>.pug</code>を付与します。</p><br>
+              <h2 id="including-plain-text">プレーンテキスト</h2>
+              <p>Pug以外のファイルの場合は、そのまま出力されます。</p>
+              <div class="half">
+                <div>
+                  <pre><code><span class="hljs-comment">//- index.pug</span>
 doctype html
 html
   head
@@ -46,11 +140,15 @@ html
     h1 My Site
     p Welcome to my <span class="hljs-keyword">super</span> lame site.
     script
-      include script.js</code></pre><pre><code><span class="hljs-comment">/* style.css */</span>
+      include script.js</code></pre>
+                  <pre><code><span class="hljs-comment">/* style.css */</span>
 <span class="hljs-selector-tag">h1</span> {
   <span class="hljs-attribute">color</span>: red;
-}</code></pre><pre><code><span class="hljs-comment">// script.js</span>
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'You are awesome'</span>);</code></pre></div><pre><code><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+}</code></pre>
+                  <pre><code><span class="hljs-comment">// script.js</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'You are awesome'</span>);</code></pre>
+                </div>
+                <pre><code><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
@@ -72,16 +170,27 @@ html
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
 
 <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
-</code></pre></div><h2 id="including-filtered-text">フィルタ</h2><p>フィルタとインクルードを合わせて使うことができます。
-フィルタを追加すると、フィルタを適用したものとしてインクルードします。</p><div class="half"><div><pre><code><span class="hljs-comment">//- index.pug</span>
+</code></pre>
+              </div>
+              <h2 id="including-filtered-text">フィルタ</h2>
+              <p>
+                フィルタとインクルードを合わせて使うことができます。
+                フィルタを追加すると、フィルタを適用したものとしてインクルードします。
+              </p>
+              <div class="half">
+                <div>
+                  <pre><code><span class="hljs-comment">//- index.pug</span>
 doctype html
 html
   head
     title An Article
   body
-    include:markdown-it article.md</code></pre><pre><code><span class="hljs-section"># article.md</span>
+    <span class="hljs-attr">include</span>:markdown-it article.md</code></pre>
+                  <pre><code><span class="hljs-section"># article.md</span>
 
-This is an article written in markdown.</code></pre></div><pre><code><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+This is an article written in markdown.</code></pre>
+                </div>
+                <pre><code><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>An Article<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
@@ -90,5 +199,26 @@ This is an article written in markdown.</code></pre></div><pre><code><span class
     <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>article.md<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>This is an article written in markdown.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre></div><br><br><div class="license"><p>&copy; 2017
- pugjs.org Released under the <a href="https://opensource.org/licenses/mit-license.php">MIT license</a></p><p>このコンテンツは<a href="https://pugjs.org/api/getting-started.html">pugドキュメント</a>を翻訳/改変したものです。</p></div></div></div></div></div><footer><span> &copy; <span id="copy_year">2017</span> tobijibu</span></footer></div><noscript id="deferred-styles"><link href="../css/lazy.css" rel="stylesheet"></noscript><script src="../js/main.js" defer></script><script src="https://pugjs.org/js/pug.js"></script><div id="src" hidden></div></body></html>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+              </div><br><br>
+              <div class="license">
+                <p>
+                  &copy; 2017
+                   pugjs.org Released under the <a href="https://opensource.org/licenses/mit-license.php">MIT license</a>
+                </p>
+                <p>このコンテンツは<a href="https://pugjs.org/api/getting-started.html">pugドキュメント</a>を翻訳/改変したものです。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer><span>&copy; <span id="copy_year">2017</span> tobijibu</span></footer>
+    </div>
+    <noscript id="deferred-styles">
+      <link href="../css/lazy.css" rel="stylesheet">
+    </noscript>
+    <script src="../js/main.js" defer></script>
+    <script src="https://pugjs.org/js/pug.js"></script>
+    <div id="src" hidden></div>
+  </body>
+</html>

@@ -1,14 +1,99 @@
-<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><title>Getting Started | Pug - にほんご。</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta property="og:title" content="Getting Started | Pug - にほんご。"><meta property="og:url"><meta property="og:type" content="article"><link rel="icon" href="https://tr.you84815.space/pug/favicon.ico"><link rel="stylesheet" href="../css/main.css"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-106478577-1', 'auto');</script></head><body><div id="container"><header><div class="icon"><a class="no-barba" href="https://tr.you84815.space/"><svg width="16" height="16"><rect width="16" height="16" fill="#e0e0e0"></rect></svg></a></div><div class="navi_toggle" onclick="toggleMenu()"><svg id="menu_close" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg><svg id="menu_open" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></div><div class="title">Pug - <a class="no-barba" href="https://tr.you84815.space/">にほんご。</a></div></header><div class="navi" id="navi"><ul class="menu"><li><a href="../index.html">Home</a></li><li>API<ul id="api"><li><a class="active" href="../api/getting-started.html">Getting Started</a></li><li><a href="../api/express-integration.html">Express Integration</a></li><li><a href="../api/reference.html">Reference</a></li><li><a href="../api/migrating-to-pug-2.html">Migrating to Pug 2</a></li></ul></li><li>Language Reference<ul id="language-reference"><li><a href="../language/attributes.html">Attributes</a></li><li><a href="../language/case.html">Case</a></li><li><a href="../language/code.html">Code</a></li><li><a href="../language/comments.html">Comments</a></li><li><a href="../language/conditionals.html">Conditionals</a></li><li><a href="../language/doctype.html">Doctype</a></li><li><a href="../language/filters.html">Filters</a></li><li><a href="../language/includes.html">Includes</a></li><li><a href="../language/inheritance.html">Inheritance</a></li><li><a href="../language/interpolation.html">Interpolation</a></li><li><a href="../language/iteration.html">Iteration</a></li><li><a href="../language/mixins.html">Mixins</a></li><li><a href="../language/plain-text.html">Plain Text</a></li><li><a href="../language/tags.html">Tags</a></li></ul></li></ul></div><div id="content"><div id="main"><div id="barba-wrapper"><div class="barba-container"><h1>Getting Started</h1><div id="update_date"><span>更新日: 2018.09.10
-</span></div><h2 id="install">インストール</h2><p>Pugは<a href="https://www.npmjs.com/" target="_blank" rel="noopener noreferrer">npm</a>からインストールできます。</p><pre><code><span class="hljs-meta">$</span><span class="bash"> npm install pug</span>
-</code></pre><h2 id="overview">説明</h2><p>Pugのレンダリングはとてもシンプルです。<a class="no-barba" href="./reference.html#compile"><code>pug.compile()</code></a>を使ってテンプレートをJavaScirpt関数としてコンパイルします。
-その関数には、引数としてオブジェクト(<code>locals</code>といいます)を渡します。
-生成された関数とデータから、一連のHTMLを返します。<br></p><p>生成された関数を再利用して、異なるデータセットで呼び出すことも可能です。</p><pre><code>//- template.pug
-p #{name}'s Pug source code!</code></pre><pre><code><span class="hljs-keyword">const</span> pug = <span class="hljs-built_in">require</span>(<span class="hljs-string">'pug'</span>);
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Getting Started | Pug - にほんご。</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property="og:title" content="Getting Started | Pug - にほんご。">
+    <meta property="og:url">
+    <meta property="og:type" content="article">
+    <link rel="icon" href="https://tr.you84815.space/pug/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link id="theme_style" rel="stylesheet" type="text/css" href="">
+    <script id="srcTheme" src="../js/toggleTheme.js" data-dir="pug"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-106478577-1', 'auto');
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <div class="icon"><a class="no-barba" href="https://tr.you84815.space/">
+            <svg width="16" height="16">
+              <rect width="16" height="16" fill="#e0e0e0"></rect>
+            </svg></a></div>
+        <div class="navi_toggle" onclick="toggleMenu()">
+          <svg id="menu_close" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+            <path d="M0 0h24v24H0z" fill="none"></path>
+          </svg>
+          <svg id="menu_open" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+          </svg>
+        </div>
+        <div class="title">Pug - <a class="no-barba" href="https://tr.you84815.space/">にほんご。</a></div><span id="toggleTheme">
+          <svg role="img" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path d="M8 256c0 136.966 111.033 248 248 248s248-111.034 248-248S392.966 8 256 8 8 119.033 8 256zm248 184V72c101.705 0 184 82.311 184 184 0 101.705-82.311 184-184 184z"></path>
+          </svg></span>
+      </header>
+      <div class="navi" id="navi">
+        <ul class="menu">
+          <li><a href="../index.html">Home</a></li>
+          <li>API
+            <ul id="api">
+              <li><a class="active" href="../api/getting-started.html">Getting Started</a></li>
+              <li><a href="../api/express-integration.html">Express Integration</a></li>
+              <li><a href="../api/reference.html">Reference</a></li>
+              <li><a href="../api/migrating-to-pug-2.html">Migrating to Pug 2</a></li>
+            </ul>
+          </li>
+          <li>Language Reference
+            <ul id="language-reference">
+              <li><a href="../language/attributes.html">Attributes</a></li>
+              <li><a href="../language/case.html">Case</a></li>
+              <li><a href="../language/code.html">Code</a></li>
+              <li><a href="../language/comments.html">Comments</a></li>
+              <li><a href="../language/conditionals.html">Conditionals</a></li>
+              <li><a href="../language/doctype.html">Doctype</a></li>
+              <li><a href="../language/filters.html">Filters</a></li>
+              <li><a href="../language/includes.html">Includes</a></li>
+              <li><a href="../language/inheritance.html">Inheritance</a></li>
+              <li><a href="../language/interpolation.html">Interpolation</a></li>
+              <li><a href="../language/iteration.html">Iteration</a></li>
+              <li><a href="../language/mixins.html">Mixins</a></li>
+              <li><a href="../language/plain-text.html">Plain Text</a></li>
+              <li><a href="../language/tags.html">Tags</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div id="content">
+        <div id="main">
+          <div id="barba-wrapper">
+            <div class="barba-container">
+              <h1>Getting Started</h1>
+              <div id="update_date"><span>更新日: 2018.09.10
+</span>
+              </div>
+              <h2 id="install">インストール</h2>
+              <p>Pugは<a href="https://www.npmjs.com/" target="_blank" rel="noopener noreferrer">npm</a>からインストールできます。</p>
+              <pre><code><span class="hljs-meta">$</span><span class="bash"> npm install pug</span>
+</code></pre>
+              <h2 id="overview">説明</h2>
+              <p>Pugのレンダリングはとてもシンプルです。<a class="no-barba" href="./reference.html#compile"><code>pug.compile()</code></a>を使ってテンプレートをJavaScirpt関数としてコンパイルします。
+                その関数には、引数としてオブジェクト(<code>locals</code>といいます)を渡します。
+                生成された関数とデータから、一連のHTMLを返します。<br>
+              </p>
+              <p>生成された関数を再利用して、異なるデータセットで呼び出すことも可能です。</p>
+              <pre><code>//- template.pug
+p #{name}'s Pug source code!</code></pre>
+              <pre><code><span class="hljs-keyword">const</span> pug = <span class="hljs-built_in">require</span>(<span class="hljs-string">'pug'</span>);
  
 <span class="hljs-comment">// コンパイル</span>
 <span class="hljs-keyword">const</span> compiledFunction = pug.compileFile(<span class="hljs-string">'template.pug'</span>);
@@ -23,21 +108,54 @@ p #{name}'s Pug source code!</code></pre><pre><code><span class="hljs-keyword">c
 <span class="hljs-built_in">console</span>.log(compiledFunction({
   <span class="hljs-attr">name</span>: <span class="hljs-string">'Forbes'</span>
 }));
-<span class="hljs-comment">// "&lt;p&gt;Forbes's Pug source code!&lt;/p&gt;"</span></code></pre><br><p><a class="no-barba" href="./reference.html#render"><code>pug.render()</code></a>は、コンパイルとレンダリングを一度に実行する関数です。
-しかし、テンプレート関数は<code>render</code>が呼び出される度に再コンパイルします。
-そのため、パフォーマンスに影響が出るかもしれません。<br><code>render</code>に<code>cache</code>オプションを指定することで、
-コンパイル時に内部キャッシュに保存しておくこともできます。</p><pre><code><span class="hljs-keyword">const</span> pug = <span class="hljs-built_in">require</span>(<span class="hljs-string">'pug'</span>);
+<span class="hljs-comment">// "&lt;p&gt;Forbes's Pug source code!&lt;/p&gt;"</span></code></pre><br>
+              <p><a class="no-barba" href="./reference.html#render"><code>pug.render()</code></a>は、コンパイルとレンダリングを一度に実行する関数です。
+                しかし、テンプレート関数は<code>render</code>が呼び出される度に再コンパイルします。
+                そのため、パフォーマンスに影響が出るかもしれません。<br><code>render</code>に<code>cache</code>オプションを指定することで、
+                コンパイル時に内部キャッシュに保存しておくこともできます。
+              </p>
+              <pre><code><span class="hljs-keyword">const</span> pug = <span class="hljs-built_in">require</span>(<span class="hljs-string">'pug'</span>);
  
 <span class="hljs-comment">// template.pugをコンパイルしてレンダリングする</span>
 <span class="hljs-built_in">console</span>.log(pug.renderFile(<span class="hljs-string">'template.pug'</span>, {
   <span class="hljs-attr">name</span>: <span class="hljs-string">'Timothy'</span>
 }));
-<span class="hljs-comment">// "&lt;p&gt;Timothy's Pug source code!&lt;/p&gt;"</span></code></pre><br><h2>手動コンパイル</h2><p>Gulp等を使ってコンパイルすることが多いと思いますが、
-手動コンパイルは以下の方法で行います。<br>上記例のテンプレートを<code>template.pug</code>、
-コンパイル設定を<code>option.js</code>とします。</p><pre><code><span class="hljs-meta">$</span><span class="bash"> pug -O ./opion.js ./test.pug</span></code></pre><h4>結果</h4><div class="half"><pre><code><span class="hljs-meta">$</span><span class="bash"> pug -O ./opion.js ./test.pug</span>
+<span class="hljs-comment">// "&lt;p&gt;Timothy's Pug source code!&lt;/p&gt;"</span></code></pre><br>
+              <h2>手動コンパイル</h2>
+              <p>
+                Gulp等を使ってコンパイルすることが多いと思いますが、
+                手動コンパイルは以下の方法で行います。<br>上記例のテンプレートを<code>template.pug</code>、
+                コンパイル設定を<code>option.js</code>とします。
+              </p>
+              <pre><code><span class="hljs-meta">$</span><span class="bash"> pug -O ./opion.js ./test.pug</span></code></pre>
+              <h4>結果</h4>
+              <div class="half">
+                <pre><code><span class="hljs-meta">$</span><span class="bash"> pug -O ./opion.js ./test.pug</span>
 &lt;p&gt;Timothy's Pug source code!&lt;/p&gt;
 &lt;p&gt;Forbes's Pug source code!&lt;/p&gt;
  
-  rendered test.html</code></pre><pre><code><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Timothy's Pug source code!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Forbes's Pug source code!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre></div><br><div class="license"><p>&copy; 2017
- pugjs.org Released under the <a href="https://opensource.org/licenses/mit-license.php">MIT license</a></p><p>このコンテンツは<a href="https://pugjs.org/api/getting-started.html">pugドキュメント</a>を翻訳/改変したものです。</p></div></div></div></div></div><footer><span> &copy; <span id="copy_year">2017</span> tobijibu</span></footer></div><noscript id="deferred-styles"><link href="../css/lazy.css" rel="stylesheet"></noscript><script src="../js/main.js" defer></script><script src="https://pugjs.org/js/pug.js"></script><div id="src" hidden></div></body></html>
+  rendered test.html</code></pre>
+                <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Timothy's Pug source code!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Forbes's Pug source code!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+              </div><br>
+              <div class="license">
+                <p>
+                  &copy; 2017
+                   pugjs.org Released under the <a href="https://opensource.org/licenses/mit-license.php">MIT license</a>
+                </p>
+                <p>このコンテンツは<a href="https://pugjs.org/api/getting-started.html">pugドキュメント</a>を翻訳/改変したものです。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer><span>&copy; <span id="copy_year">2017</span> tobijibu</span></footer>
+    </div>
+    <noscript id="deferred-styles">
+      <link href="../css/lazy.css" rel="stylesheet">
+    </noscript>
+    <script src="../js/main.js" defer></script>
+    <script src="https://pugjs.org/js/pug.js"></script>
+    <div id="src" hidden></div>
+  </body>
+</html>

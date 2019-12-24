@@ -1,66 +1,213 @@
-<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><title>Attributes | Pug - にほんご。</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta property="og:title" content="Attributes | Pug - にほんご。"><meta property="og:url"><meta property="og:type" content="article"><link rel="icon" href="https://tr.you84815.space/pug/favicon.ico"><link rel="stylesheet" href="../css/main.css"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-106478577-1', 'auto');</script></head><body><div id="container"><header><div class="icon"><a class="no-barba" href="https://tr.you84815.space/"><svg width="16" height="16"><rect width="16" height="16" fill="#e0e0e0"></rect></svg></a></div><div class="navi_toggle" onclick="toggleMenu()"><svg id="menu_close" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg><svg id="menu_open" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></div><div class="title">Pug - <a class="no-barba" href="https://tr.you84815.space/">にほんご。</a></div></header><div class="navi" id="navi"><ul class="menu"><li><a href="../index.html">Home</a></li><li>API<ul id="api"><li><a href="../api/getting-started.html">Getting Started</a></li><li><a href="../api/express-integration.html">Express Integration</a></li><li><a href="../api/reference.html">Reference</a></li><li><a href="../api/migrating-to-pug-2.html">Migrating to Pug 2</a></li></ul></li><li>Language Reference<ul id="language-reference"><li><a class="active" href="../language/attributes.html">Attributes</a></li><li><a href="../language/case.html">Case</a></li><li><a href="../language/code.html">Code</a></li><li><a href="../language/comments.html">Comments</a></li><li><a href="../language/conditionals.html">Conditionals</a></li><li><a href="../language/doctype.html">Doctype</a></li><li><a href="../language/filters.html">Filters</a></li><li><a href="../language/includes.html">Includes</a></li><li><a href="../language/inheritance.html">Inheritance</a></li><li><a href="../language/interpolation.html">Interpolation</a></li><li><a href="../language/iteration.html">Iteration</a></li><li><a href="../language/mixins.html">Mixins</a></li><li><a href="../language/plain-text.html">Plain Text</a></li><li><a href="../language/tags.html">Tags</a></li></ul></li></ul></div><div id="content"><div id="main"><div id="barba-wrapper"><div class="barba-container"><h1>Attributes</h1><div id="update_date"><span>更新日: 2018.09.10
-</span></div><h2>属性</h2><p>タグの属性はHTMLと似ていますが、単なるJavaScriptです。<br>(このページでは<a class="no-barba" href="./plain-text.html#whitespace-control">スペース管理</a>に<code>|(パイプ)</code>を使います。)</p><div class="half"><pre><code>a(href=<span class="hljs-string">'google.com'</span>) Google
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Attributes | Pug - にほんご。</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property="og:title" content="Attributes | Pug - にほんご。">
+    <meta property="og:url">
+    <meta property="og:type" content="article">
+    <link rel="icon" href="https://tr.you84815.space/pug/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link id="theme_style" rel="stylesheet" type="text/css" href="">
+    <script id="srcTheme" src="../js/toggleTheme.js" data-dir="pug"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-106478577-1', 'auto');
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <div class="icon"><a class="no-barba" href="https://tr.you84815.space/">
+            <svg width="16" height="16">
+              <rect width="16" height="16" fill="#e0e0e0"></rect>
+            </svg></a></div>
+        <div class="navi_toggle" onclick="toggleMenu()">
+          <svg id="menu_close" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+            <path d="M0 0h24v24H0z" fill="none"></path>
+          </svg>
+          <svg id="menu_open" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+          </svg>
+        </div>
+        <div class="title">Pug - <a class="no-barba" href="https://tr.you84815.space/">にほんご。</a></div><span id="toggleTheme">
+          <svg role="img" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path d="M8 256c0 136.966 111.033 248 248 248s248-111.034 248-248S392.966 8 256 8 8 119.033 8 256zm248 184V72c101.705 0 184 82.311 184 184 0 101.705-82.311 184-184 184z"></path>
+          </svg></span>
+      </header>
+      <div class="navi" id="navi">
+        <ul class="menu">
+          <li><a href="../index.html">Home</a></li>
+          <li>API
+            <ul id="api">
+              <li><a href="../api/getting-started.html">Getting Started</a></li>
+              <li><a href="../api/express-integration.html">Express Integration</a></li>
+              <li><a href="../api/reference.html">Reference</a></li>
+              <li><a href="../api/migrating-to-pug-2.html">Migrating to Pug 2</a></li>
+            </ul>
+          </li>
+          <li>Language Reference
+            <ul id="language-reference">
+              <li><a class="active" href="../language/attributes.html">Attributes</a></li>
+              <li><a href="../language/case.html">Case</a></li>
+              <li><a href="../language/code.html">Code</a></li>
+              <li><a href="../language/comments.html">Comments</a></li>
+              <li><a href="../language/conditionals.html">Conditionals</a></li>
+              <li><a href="../language/doctype.html">Doctype</a></li>
+              <li><a href="../language/filters.html">Filters</a></li>
+              <li><a href="../language/includes.html">Includes</a></li>
+              <li><a href="../language/inheritance.html">Inheritance</a></li>
+              <li><a href="../language/interpolation.html">Interpolation</a></li>
+              <li><a href="../language/iteration.html">Iteration</a></li>
+              <li><a href="../language/mixins.html">Mixins</a></li>
+              <li><a href="../language/plain-text.html">Plain Text</a></li>
+              <li><a href="../language/tags.html">Tags</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div id="content">
+        <div id="main">
+          <div id="barba-wrapper">
+            <div class="barba-container">
+              <h1>Attributes</h1>
+              <div id="update_date"><span>更新日: 2018.09.10
+</span>
+              </div>
+              <h2>属性</h2>
+              <p>タグの属性はHTMLと似ていますが、単なるJavaScriptです。<br>(このページでは<a class="no-barba" href="./plain-text.html#whitespace-control">スペース管理</a>に<code>|(パイプ)</code>を使います。)</p>
+              <div class="half">
+                <pre><code>a(href=<span class="hljs-string">'google.com'</span>) Google
 |
 |
 a(<span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">'button'</span> href=<span class="hljs-string">'google.com'</span>) Google
 |
 |
-a(<span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">'button'</span>, href=<span class="hljs-string">'google.com'</span>) Google</code></pre><pre><code><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"google.com"</span>&gt;</span>Google<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+a(<span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">'button'</span>, href=<span class="hljs-string">'google.com'</span>) Google</code></pre>
+                <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"google.com"</span>&gt;</span>Google<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"google.com"</span>&gt;</span>Google<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"google.com"</span>&gt;</span>Google<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre></div><br><p>JavaScriptも動きます。</p><div class="half"><pre><code>- <span class="hljs-keyword">var</span> authenticated = <span class="hljs-literal">true</span>
-body(<span class="hljs-class"><span class="hljs-keyword">class</span></span>=authenticated ? <span class="hljs-string">'authed'</span> : <span class="hljs-string">'anon'</span>)</code></pre><pre><code><span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"authed"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre></div><br><h2 id="multiline-attributes">複数行指定</h2><p>複数の属性を指定する場合、行を分けて指定することができます。</p><div class="half"><pre><code>input(
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"google.com"</span>&gt;</span>Google<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
+              </div><br>
+              <p>JavaScriptも動きます。</p>
+              <div class="half">
+                <pre><code>- <span class="hljs-keyword">var</span> authenticated = <span class="hljs-literal">true</span>
+body(<span class="hljs-class"><span class="hljs-keyword">class</span></span>=authenticated ? <span class="hljs-string">'authed'</span> : <span class="hljs-string">'anon'</span>)</code></pre>
+                <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"authed"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre>
+              </div><br>
+              <h2 id="multiline-attributes">複数行指定</h2>
+              <p>複数の属性を指定する場合、行を分けて指定することができます。</p>
+              <div class="half">
+                <pre><code>input(
   type=<span class="hljs-string">'checkbox'</span>
   name=<span class="hljs-string">'agreement'</span>
   checked
-)</code></pre><pre><code><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"agreement"</span> <span class="hljs-attr">checked</span>=<span class="hljs-string">"checked"</span> /&gt;</span></code></pre></div><br><p>もしES2015の<a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/template_strings" target="_blank" rel="noopener noreferrer">テンプレート文字列</a>(Node.js/io.js 1.0.0以上)が使えるならば、その構文を使うことができます。
-長い属性値を持つ場合はとても便利です。</p><div class="half"><pre><code>input(data-json=<span class="hljs-string">`
+)</code></pre>
+                <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"agreement"</span> <span class="hljs-attr">checked</span>=<span class="hljs-string">"checked"</span> /&gt;</span></code></pre>
+              </div><br>
+              <p>もしES2015の<a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/template_strings" target="_blank" rel="noopener noreferrer">テンプレート文字列</a>(Node.js/io.js 1.0.0以上)が使えるならば、その構文を使うことができます。
+                長い属性値を持つ場合はとても便利です。
+              </p>
+              <div class="half">
+                <pre><code>input(data-json=<span class="hljs-string">`
   {
     "very-long": "piece of ",
     "data": true
   }
-`</span>)</code></pre><pre><code><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">data-json</span>=<span class="hljs-string">"
+`</span>)</code></pre>
+                <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">data-json</span>=<span class="hljs-string">"
   {
     &amp;quot;very-long&amp;quot;: &amp;quot;piece of &amp;quot;,
     &amp;quot;data&amp;quot;: true
   }
-"</span>&gt;</span></code></pre></div><br><h2 id="quoted-attributes">特殊な属性名の指定</h2><p>属性名にJavaScriptで指定出来ない名称を指定する場合、
-<code>""(ダブルクォート)</code>または<code>''(シングルクォート)</code>で囲むか、
-属性を<code>,(カンマ)</code>で区切ってください。
-JavaScriptで指定できない名称は、例えば<code>[]</code>や、<code>()</code>で囲まれた名称が考えられます。
-(Angular 2でよく使われます。)</p><div class="half"><pre><code><span class="hljs-comment">//- この例では属性名に"(click)"を</span>
+"</span>&gt;</span></code></pre>
+              </div><br>
+              <h2 id="quoted-attributes">特殊な属性名の指定</h2>
+              <p>
+                属性名にJavaScriptで指定出来ない名称を指定する場合、
+                <code>""(ダブルクォート)</code>または<code>''(シングルクォート)</code>で囲むか、
+                属性を<code>,(カンマ)</code>で区切ってください。
+                JavaScriptで指定できない名称は、例えば<code>[]</code>や、<code>()</code>で囲まれた名称が考えられます。
+                (Angular 2でよく使われます。)
+              </p>
+              <div class="half">
+                <pre><code><span class="hljs-comment">//- この例では属性名に"(click)"を</span>
 <span class="hljs-comment">//- 関数呼び出しとして指定しています。</span>
 <span class="hljs-comment">//- このままではエラーが発生します。</span>
-div(<span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">'div-class'</span> (click)=<span class="hljs-string">'play()'</span>)</code></pre><pre><code>index.pug:4:11
+div(<span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">'div-class'</span> (click)=<span class="hljs-string">'play()'</span>)</code></pre>
+                <pre><code>index.pug:4:11
     2| //- 関数呼び出しとして指定しています。
     3| //- このままではエラーが発生します。
 <span class="hljs-meta">  &gt;</span><span class="bash"> 4| div(class=<span class="hljs-string">'div-class'</span> (click)=<span class="hljs-string">'play()'</span>)</span>
 -----------------^
 
-Syntax Error: Assigning to rvalue</code></pre></div><div class="half"><pre><code>div(<span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">'div-class'</span>, (click)=<span class="hljs-string">'play()'</span>)
-div(<span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">'div-class'</span> <span class="hljs-string">'(click)'</span>=<span class="hljs-string">'play()'</span>)</code></pre><pre><code><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"div-class"</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">"play()"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"div-class"</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">"play()"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div><br><h2 id="attribute-interpolation">変数挿入</h2><h4>注意</h4><p>以前のPug/Jadeでは以下のような構文が利用できました。</p><pre><code>a(href=<span class="hljs-string">"/#{url}"</span>) Link</code></pre><p>この構文は<b>廃止されました</b>。代わりに以下のように指定します。<br>(以前のバージョンとの違いや互換性、移行方法については<a class="no-barba" href="../api/migrating-to-pug-2.html">Migrating to Pug v2</a>を参照して下さい。)</p><p>属性に変数を指定する方法はいくつかあります。</p><ul class="num"><li>単にJavaScriptを書く方法<div class="half"><pre><code>- <span class="hljs-keyword">var</span> url = <span class="hljs-string">'pug-test.html'</span>;
+Syntax Error: Assigning to rvalue</code></pre>
+              </div>
+              <div class="half">
+                <pre><code>div(<span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">'div-class'</span>, (click)=<span class="hljs-string">'play()'</span>)
+div(<span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">'div-class'</span> <span class="hljs-string">'(click)'</span>=<span class="hljs-string">'play()'</span>)</code></pre>
+                <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"div-class"</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">"play()"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"div-class"</span> (<span class="hljs-attr">click</span>)=<span class="hljs-string">"play()"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+              </div><br>
+              <h2 id="attribute-interpolation">変数挿入</h2>
+              <h4>注意</h4>
+              <p>以前のPug/Jadeでは以下のような構文が利用できました。</p>
+              <pre><code>a(href=<span class="hljs-string">"/#{url}"</span>) Link</code></pre>
+              <p>この構文は<b>廃止されました</b>。代わりに以下のように指定します。<br>(以前のバージョンとの違いや互換性、移行方法については<a class="no-barba" href="../api/migrating-to-pug-2.html">Migrating to Pug v2</a>を参照して下さい。)</p>
+              <p>属性に変数を指定する方法はいくつかあります。</p>
+              <ul class="num">
+                <li>単にJavaScriptを書く方法
+                  <div class="half">
+                    <pre><code>- <span class="hljs-keyword">var</span> url = <span class="hljs-string">'pug-test.html'</span>;
 a(href=<span class="hljs-string">'/'</span> + url) Link
 |
 |
 - url = <span class="hljs-string">'https://example.com/'</span>
-a(href=url) Another link</code></pre><pre><code><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/pug-test.html"</span>&gt;</span>Link<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://example.com/"</span>&gt;</span>Another link<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre></div></li><br><li>もしES2015の<a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/template_strings" target="_blank" rel="noopener noreferrer">テンプレート文字列</a>(Node.js/io.js 1.0.0以上)が使えるならば、その構文を使うことができます。<div class="half"><pre><code>- <span class="hljs-keyword">var</span> btnType = <span class="hljs-string">'info'</span>
+a(href=url) Another link</code></pre>
+                    <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/pug-test.html"</span>&gt;</span>Link<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://example.com/"</span>&gt;</span>Another link<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
+                  </div>
+                </li><br>
+                <li>もしES2015の<a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/template_strings" target="_blank" rel="noopener noreferrer">テンプレート文字列</a>(Node.js/io.js 1.0.0以上)が使えるならば、その構文を使うことができます。
+                  <div class="half">
+                    <pre><code>- <span class="hljs-keyword">var</span> btnType = <span class="hljs-string">'info'</span>
 - <span class="hljs-keyword">var</span> btnSize = <span class="hljs-string">'lg'</span>
 button(type=<span class="hljs-string">'button'</span> <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">'btn btn-'</span> + btnType + <span class="hljs-string">' btn-'</span> + btnSize)
 |
 |
-button(type=<span class="hljs-string">'button'</span> <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">`btn btn-<span class="hljs-subst">${btnType}</span> btn-<span class="hljs-subst">${btnSize}</span>`</span>)</code></pre><pre><code><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-info btn-lg"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-info btn-lg"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></code></pre></div></li></ul><br><h2 id="unescaped-attributes">属性値のエスケープ</h2><p>デフォルトではXSS等の攻撃を防ぐために、属性値は全てエスケープされます。
-もしエスケープさせたくない場合は<code>=</code>の代わりに<code>!=</code>を使います。</p><div class="half"><pre><code>div(escaped=<span class="hljs-string">"&lt;code&gt;"</span>)
-div(unescaped!=<span class="hljs-string">"&lt;code&gt;"</span>)</code></pre><pre><code><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">escaped</span>=<span class="hljs-string">"&amp;lt;code&amp;gt;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">unescaped</span>=<span class="hljs-string">"&lt;code&gt;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div><br><h4>注意</h4><p><b>エスケープされていないコードは危険です。</b><a href="https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AD%E3%82%B9%E3%82%B5%E3%82%A4%E3%83%88%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0" target="_blank" rel="noopener noreferrer">XSS</a>を防ぐには、ユーザーの入力情報を全て適切にサニタイズする必要があります。</p><br><h2 id="boolean-attributes">boolean属性</h2><p>Pugはboolean属性をミラーリングします。
-値は<code>true</code>、<code>false</code>が指定可能です。
-値を指定しない場合は<code>true</code>が適用されます。</p><div class="half"><pre><code>input(type=<span class="hljs-string">'checkbox'</span> checked)
+button(type=<span class="hljs-string">'button'</span> <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">`btn btn-<span class="hljs-subst">${btnType}</span> btn-<span class="hljs-subst">${btnSize}</span>`</span>)</code></pre>
+                    <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-info btn-lg"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-info btn-lg"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></code></pre>
+                  </div>
+                </li>
+              </ul><br>
+              <h2 id="unescaped-attributes">属性値のエスケープ</h2>
+              <p>
+                デフォルトではXSS等の攻撃を防ぐために、属性値は全てエスケープされます。
+                もしエスケープさせたくない場合は<code>=</code>の代わりに<code>!=</code>を使います。
+              </p>
+              <div class="half">
+                <pre><code>div(escaped=<span class="hljs-string">"&lt;code&gt;"</span>)
+div(unescaped!=<span class="hljs-string">"&lt;code&gt;"</span>)</code></pre>
+                <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">escaped</span>=<span class="hljs-string">"&amp;lt;code&amp;gt;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">unescaped</span>=<span class="hljs-string">"&lt;code&gt;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+              </div><br>
+              <h4>注意</h4>
+              <p><b>エスケープされていないコードは危険です。</b><a href="https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AD%E3%82%B9%E3%82%B5%E3%82%A4%E3%83%88%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0" target="_blank" rel="noopener noreferrer">XSS</a>を防ぐには、ユーザーの入力情報を全て適切にサニタイズする必要があります。</p><br>
+              <h2 id="boolean-attributes">boolean属性</h2>
+              <p>
+                Pugはboolean属性をミラーリングします。
+                値は<code>true</code>、<code>false</code>が指定可能です。
+                値を指定しない場合は<code>true</code>が適用されます。
+              </p>
+              <div class="half">
+                <pre><code>input(type=<span class="hljs-string">'checkbox'</span> checked)
 |
 |
 input(type=<span class="hljs-string">'checkbox'</span> checked=<span class="hljs-literal">true</span>)
@@ -69,11 +216,17 @@ input(type=<span class="hljs-string">'checkbox'</span> checked=<span class="hljs
 input(type=<span class="hljs-string">'checkbox'</span> checked=<span class="hljs-literal">false</span>)
 |
 |
-input(type=<span class="hljs-string">'checkbox'</span> checked=<span class="hljs-literal">true</span>.toString())</code></pre><pre><code><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">checked</span>=<span class="hljs-string">"checked"</span> /&gt;</span>
+input(type=<span class="hljs-string">'checkbox'</span> checked=<span class="hljs-literal">true</span>.toString())</code></pre>
+                <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">checked</span>=<span class="hljs-string">"checked"</span> /&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">checked</span>=<span class="hljs-string">"checked"</span> /&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> /&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">checked</span>=<span class="hljs-string">"true"</span> /&gt;</span></code></pre></div><br><p>もしdoctypeが<code>html</code>なら、Pugはミラーリングする必要が無いと判断し、
-代わりに簡潔な方法で記述します。</p><div class="half"><pre><code>doctype html
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">checked</span>=<span class="hljs-string">"true"</span> /&gt;</span></code></pre>
+              </div><br>
+              <p>もしdoctypeが<code>html</code>なら、Pugはミラーリングする必要が無いと判断し、
+                代わりに簡潔な方法で記述します。
+              </p>
+              <div class="half">
+                <pre><code>doctype html
 |
 |
 input(type=<span class="hljs-string">'checkbox'</span> checked)
@@ -85,30 +238,112 @@ input(type=<span class="hljs-string">'checkbox'</span> checked=<span class="hljs
 input(type=<span class="hljs-string">'checkbox'</span> checked=<span class="hljs-literal">false</span>)
 |
 |
-input(type=<span class="hljs-string">'checkbox'</span> checked=<span class="hljs-literal">true</span> &amp;&amp; <span class="hljs-string">'checked'</span>)</code></pre><pre><code><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+input(type=<span class="hljs-string">'checkbox'</span> checked=<span class="hljs-literal">true</span> &amp;&amp; <span class="hljs-string">'checked'</span>)</code></pre>
+                <pre><code><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">checked</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">checked</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">checked</span>=<span class="hljs-string">"checked"</span>&gt;</span></code></pre></div><br><h2 id="style-attributes">スタイル属性</h2><p><code>style</code>属性は、他の属性と同様に文字列を指定することができますが、
-スタイルのオブジェクトを指定することもできます。
-これはJavaScriptによって生成されたスタイルを指定する時に便利です。</p><div class="half"><pre><code>a(style={<span class="hljs-attr">color</span>: <span class="hljs-string">'red'</span>, <span class="hljs-attr">background</span>: <span class="hljs-string">'green'</span>})</code></pre><pre><code><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"color:red;background:green;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre></div><br><h2 id="class-attributes">クラス属性</h2><p><code>class</code>属性は、他の属性と同様に文字列を指定することができますが、
-クラス名の配列を指定することもできます。
-これはJavaScriptによって生成されたクラス配列を指定する時に便利です。</p><div class="half"><pre><code>- <span class="hljs-keyword">var</span> classes = [<span class="hljs-string">'foo'</span>, <span class="hljs-string">'bar'</span>, <span class="hljs-string">'baz'</span>]
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">checked</span>=<span class="hljs-string">"checked"</span>&gt;</span></code></pre>
+              </div><br>
+              <h2 id="style-attributes">スタイル属性</h2>
+              <p><code>style</code>属性は、他の属性と同様に文字列を指定することができますが、
+                スタイルのオブジェクトを指定することもできます。
+                これはJavaScriptによって生成されたスタイルを指定する時に便利です。
+              </p>
+              <div class="half">
+                <pre><code>a(style={<span class="hljs-attr">color</span>: <span class="hljs-string">'red'</span>, <span class="hljs-attr">background</span>: <span class="hljs-string">'green'</span>})</code></pre>
+                <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"color:red;background:green;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
+              </div><br>
+              <h2 id="class-attributes">クラス属性</h2>
+              <p><code>class</code>属性は、他の属性と同様に文字列を指定することができますが、
+                クラス名の配列を指定することもできます。
+                これはJavaScriptによって生成されたクラス配列を指定する時に便利です。
+              </p>
+              <div class="half">
+                <pre><code>- <span class="hljs-keyword">var</span> classes = [<span class="hljs-string">'foo'</span>, <span class="hljs-string">'bar'</span>, <span class="hljs-string">'baz'</span>]
 a(<span class="hljs-class"><span class="hljs-keyword">class</span></span>=classes)
 |
 |
 <span class="hljs-comment">//- 繰り返し処理したクラス属性にマージすることもできます。</span>
-a.bang(<span class="hljs-class"><span class="hljs-keyword">class</span></span>=classes <span class="hljs-class"><span class="hljs-keyword">class</span></span>=[<span class="hljs-string">'bing'</span>])</code></pre><pre><code><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"foo bar baz"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"bang foo bar baz bing"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre></div><br><p>クラス名を<code>true</code>または<code>false</code>にマップするオブジェクトを指定することもできます。
-条件付きクラスを指定する場合に便利です。</p><div class="half"><pre><code>- <span class="hljs-keyword">var</span> currentUrl = <span class="hljs-string">'/about'</span>
+a.bang(<span class="hljs-class"><span class="hljs-keyword">class</span></span>=classes <span class="hljs-class"><span class="hljs-keyword">class</span></span>=[<span class="hljs-string">'bing'</span>])</code></pre>
+                <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"foo bar baz"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"bang foo bar baz bing"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
+              </div><br>
+              <p>クラス名を<code>true</code>または<code>false</code>にマップするオブジェクトを指定することもできます。
+                条件付きクラスを指定する場合に便利です。
+              </p>
+              <div class="half">
+                <pre><code>- <span class="hljs-keyword">var</span> currentUrl = <span class="hljs-string">'/about'</span>
 a(<span class="hljs-class"><span class="hljs-keyword">class</span></span>={<span class="hljs-attr">active</span>: currentUrl === <span class="hljs-string">'/'</span>} href=<span class="hljs-string">'/'</span>) Home
 |
 |
-a(<span class="hljs-class"><span class="hljs-keyword">class</span></span>={<span class="hljs-attr">active</span>: currentUrl === <span class="hljs-string">'/about'</span>} href=<span class="hljs-string">'/about'</span>) About</code></pre><pre><code><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"active"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/about"</span>&gt;</span>About<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre></div><br><h2 id="class-literal">classリテラル</h2><p>クラス名は<code>.classname</code>構文を使って指定することができます。</p><div class="half"><pre><code>a.button</code></pre><pre><code><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre></div><br><p><code>div</code>は一番使うタグなので、<code>div</code>を省略することもできます。</p><div class="half"><pre><code>.content</code></pre><pre><code><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"content"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div><br><h2 id="id-literal">idリテラル</h2><p>idは<code>#idname</code>構文を使って指定することができます。</p><div class="half"><pre><code>a#main-link</code></pre><pre><code><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"main-link"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre></div><br><p><code>div</code>は一番使うタグなので、<code>div</code>を省略することもできます。</p><div class="half"><pre><code>#content</code></pre><pre><code><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"content"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div><br><h2 id="attributes">&attributes</h2><p>"アンド アトリビュート"と読みます。
-<code>&attributes</code>は、要素に対してオブジェクトを分割して挿入することができます。</p><div class="half"><pre><code>div#foo(data-bar="foo")&amp;attributes({'data-foo': 'bar'})</code></pre><pre><code><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"foo"</span> <span class="hljs-attr">data-bar</span>=<span class="hljs-string">"foo"</span> <span class="hljs-attr">data-foo</span>=<span class="hljs-string">"bar"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div><br><p>上記ではオブジェクトを指定していますが、オブジェクト変数でも可能です。
-<a class="no-barba" href="./mixins.html#mixin-attributes">属性ミックスイン</a>を参照してください。</p><div class="half"><pre><code>- var attributes = {};
+a(<span class="hljs-class"><span class="hljs-keyword">class</span></span>={<span class="hljs-attr">active</span>: currentUrl === <span class="hljs-string">'/about'</span>} href=<span class="hljs-string">'/about'</span>) About</code></pre>
+                <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"active"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/about"</span>&gt;</span>About<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
+              </div><br>
+              <h2 id="class-literal">classリテラル</h2>
+              <p>クラス名は<code>.classname</code>構文を使って指定することができます。</p>
+              <div class="half">
+                <pre><code>a.button</code></pre>
+                <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
+              </div><br>
+              <p><code>div</code>は一番使うタグなので、<code>div</code>を省略することもできます。</p>
+              <div class="half">
+                <pre><code>.content</code></pre>
+                <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"content"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+              </div><br>
+              <h2 id="id-literal">idリテラル</h2>
+              <p>idは<code>#idname</code>構文を使って指定することができます。</p>
+              <div class="half">
+                <pre><code>a#main-link</code></pre>
+                <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"main-link"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
+              </div><br>
+              <p><code>div</code>は一番使うタグなので、<code>div</code>を省略することもできます。</p>
+              <div class="half">
+                <pre><code>#content</code></pre>
+                <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"content"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+              </div><br>
+              <h2 id="attributes">&attributes</h2>
+              <p>
+                "アンド アトリビュート"と読みます。
+                <code>&attributes</code>は、要素に対してオブジェクトを分割して挿入することができます。
+              </p>
+              <div class="half">
+                <pre><code>div#foo(data-bar="foo")&amp;attributes({'data-foo': 'bar'})</code></pre>
+                <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"foo"</span> <span class="hljs-attr">data-bar</span>=<span class="hljs-string">"foo"</span> <span class="hljs-attr">data-foo</span>=<span class="hljs-string">"bar"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+              </div><br>
+              <p>
+                上記ではオブジェクトを指定していますが、オブジェクト変数でも可能です。
+                <a class="no-barba" href="./mixins.html#mixin-attributes">属性ミックスイン</a>を参照してください。
+              </p>
+              <div class="half">
+                <pre><code>- var attributes = {};
 - attributes.class = 'baz';
-div#foo(data-bar="foo")&amp;attributes(attributes)</code></pre><pre><code><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"baz"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"foo"</span> <span class="hljs-attr">data-bar</span>=<span class="hljs-string">"foo"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div><br><h4>注意</h4><p><b><code>&attributes</code>で適用された属性は自動エスケープされません。</b><a href="https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AD%E3%82%B9%E3%82%B5%E3%82%A4%E3%83%88%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0" target="_blank" rel="noopener noreferrer">XSS</a>を防ぐには、ユーザーの入力情報を全て適切にサニタイズする必要があります。
-mixinから<code>attributes</code>が呼び出された場合は自動エスケープします。</p><br><br><div class="license"><p>&copy; 2017
- pugjs.org Released under the <a href="https://opensource.org/licenses/mit-license.php">MIT license</a></p><p>このコンテンツは<a href="https://pugjs.org/api/getting-started.html">pugドキュメント</a>を翻訳/改変したものです。</p></div></div></div></div></div><footer><span> &copy; <span id="copy_year">2017</span> tobijibu</span></footer></div><noscript id="deferred-styles"><link href="../css/lazy.css" rel="stylesheet"></noscript><script src="../js/main.js" defer></script><script src="https://pugjs.org/js/pug.js"></script><div id="src" hidden></div></body></html>
+div#foo(data-bar="foo")&amp;attributes(attributes)</code></pre>
+                <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"baz"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"foo"</span> <span class="hljs-attr">data-bar</span>=<span class="hljs-string">"foo"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+              </div><br>
+              <h4>注意</h4>
+              <p><b><code>&attributes</code>で適用された属性は自動エスケープされません。</b><a href="https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AD%E3%82%B9%E3%82%B5%E3%82%A4%E3%83%88%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0" target="_blank" rel="noopener noreferrer">XSS</a>を防ぐには、ユーザーの入力情報を全て適切にサニタイズする必要があります。
+                mixinから<code>attributes</code>が呼び出された場合は自動エスケープします。
+              </p><br><br>
+              <div class="license">
+                <p>
+                  &copy; 2017
+                   pugjs.org Released under the <a href="https://opensource.org/licenses/mit-license.php">MIT license</a>
+                </p>
+                <p>このコンテンツは<a href="https://pugjs.org/api/getting-started.html">pugドキュメント</a>を翻訳/改変したものです。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer><span>&copy; <span id="copy_year">2017</span> tobijibu</span></footer>
+    </div>
+    <noscript id="deferred-styles">
+      <link href="../css/lazy.css" rel="stylesheet">
+    </noscript>
+    <script src="../js/main.js" defer></script>
+    <script src="https://pugjs.org/js/pug.js"></script>
+    <div id="src" hidden></div>
+  </body>
+</html>
